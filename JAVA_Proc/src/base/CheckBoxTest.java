@@ -86,6 +86,8 @@ public class CheckBoxTest {
 			}
 			
 		});
+		
+		System.out.println("오늘 Githuh 수정이 되는지 확인해봐요");
 	}
 
 }
