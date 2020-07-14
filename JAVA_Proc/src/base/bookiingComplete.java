@@ -17,7 +17,7 @@ public class bookiingComplete {
 		// TODO Auto-generated method stub
 		
 		Frame f = new Frame("");
-		f.setBounds(100, 100, 400, 500);
+		f.setBounds(100, 100, 400, 600);
 		//f.setBackground(Color.orange);
 
 		Font font = new Font("¸·Àº°íµñ", Font.BOLD, 20);
@@ -61,6 +61,9 @@ public class bookiingComplete {
 		f.add(pSouth, BorderLayout.SOUTH);
 		f.setVisible(true);
 		f.setResizable(false);
+		
+		f.addWindowListener(new MyEventListener());
+
 	}
 
 }

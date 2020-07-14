@@ -13,11 +13,18 @@ import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JOptionPane;
+
+import EnrollVO.Enroll;
+import ReseveVO.Reserve;
+
 public class FrameReserve{
-	public void createFrame() {
+	public void createFrame(Enroll enroll) {
 		Frame f =new Frame("진료 예약");
 	    f.setBounds(0,100,400,600);
 	    f.setBackground(Color.lightGray);
@@ -70,11 +77,11 @@ public class FrameReserve{
 	    pConR.setSize(190, 400);
 	    pConR.setLocation(150, 60);
 	    CheckboxGroup rGroup1= new CheckboxGroup(); 
-	    Checkbox dog=new Checkbox("개",rGroup1,true);
+	    Checkbox dog=new Checkbox("개",rGroup1,false);
 	    Checkbox cat=new Checkbox("고양이",rGroup1,false);
-	    TextField sirialNumA=new TextField(18);
+	    TextField sirialNumA=new TextField(16);
 	    sirialNumA.setEnabled(false);
-	    TextField animalnameA=new TextField(18);
+	    TextField animalnameA=new TextField(16);
 	    pConR.add(dog); 
 	    pConR.add(cat);
 	    pConR.add(sirialNumA);
@@ -82,8 +89,8 @@ public class FrameReserve{
 	    CheckboxGroup rGroup2= new CheckboxGroup();
 	    Checkbox M=new Checkbox("수컷",rGroup2,true);
 	    Checkbox FM=new Checkbox("암컷",rGroup2,false); 
-	    TextField animalgenderA=new TextField(18);
-	    TextField animalageA=new TextField(18);
+	    TextField animalgenderA=new TextField(16);
+	    TextField animalageA=new TextField(16);
 	    pConR.add(M); 
 	    pConR.add(FM);
 	    pConR.add(animalgenderA);
@@ -93,14 +100,12 @@ public class FrameReserve{
 	    Checkbox genderO=new Checkbox("무",rGroup3,false); 
 	    pConR.add(genderX); 
 	    pConR.add(genderO);
-	    TextField nameA=new TextField(18);
-	    TextField phoneA=new TextField(18);
+	    TextField nameA=new TextField(16);
+	    TextField phoneA=new TextField(16);
 	    pConR.add(nameA);
 	    pConR.add(phoneA);
 	    
 	    pCon.add(pConR);
-	    
-	   
 	    
 	    Button btn1 = new Button("메인화면");
 	    Button btn2 = new Button("다음");
@@ -114,6 +119,43 @@ public class FrameReserve{
 	    f.add(pCon);
 	    f.setVisible(true);
 	    
+	    //등록한 후 등록정보를 그대로 가져와서 예약창에 띄워준다.
+	    if(enroll!=null) {
+	    	dog.setEnabled(true);//개 선택
+	    	if(enroll.getAnimalgender()=="수컷") {
+	    		M.setEnabled(true);
+	    	}else
+	    		FM.setEnabled(true);
+	    }
+	    
+	       //개를 누르면 메세지 팝업창이 뜨고 그 후에 등록창으로 이동
+	       dog.addMouseListener(new MouseAdapter() {
+	         @Override
+	         public void mouseClicked(MouseEvent e) {
+	            int input=JOptionPane.showConfirmDialog(null,"개의 등록번호가 있습니까?","선택창", JOptionPane.YES_NO_OPTION);
+	            System.out.println(input);
+	            //yes-0, no-1
+	            if(input==1) {
+	               FrameEnroll enroll = new FrameEnroll();
+	               f.setVisible(false);
+	               enroll.createFrame();
+	            }else {
+	        	    sirialNumA.setEnabled(true);
+
+	            }
+	         }
+	          
+	      });
+	       
+	       cat.addMouseListener(new MouseAdapter() {
+		         @Override
+		         public void mouseClicked(MouseEvent e) {
+		          
+		        	    sirialNumA.setEnabled(false);
+
+		         }
+		      });
+
 	    // ** 메인화면이동 이벤트 추가 **
 	    btn1.addActionListener(new ActionListener() {
 
@@ -126,6 +168,20 @@ public class FrameReserve{
 	    	
 	    });
 	    
+	    // ** 다음 버튼 이벤트 추가
+	    btn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
+//				
+//				
+//				FrameMain s = new FrameMain();
+//				f.setVisible(false);
+//				reserve.createFrame();
+			}
+	    	
+	    });
 	    
 	    //윈도우 종료 버튼 이벤트
 	    f.addWindowListener(new WindowAdapter() {
