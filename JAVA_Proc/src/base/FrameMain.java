@@ -49,6 +49,17 @@ public class FrameMain {
 				reserve.createFrame(null);
 			}
 		});
+		
+		//예약확인 버튼 액션리스너
+		confirm_btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Appoint1 reserve = new Appoint1();
+				f.setVisible(false);
+				reserve.createFrame();
+			}
+		});
 	}
 	
 
