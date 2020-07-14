@@ -10,6 +10,8 @@ import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -19,11 +21,11 @@ import javax.swing.JTextField;
 
 public class Appoint1 {
 
-   public static void main(String[] args) {
+	public void createFrame() {
 
-      Frame f = new Frame("진료예약 확인");   
+      JFrame f = new JFrame("진료예약 확인");   
       
-      f.setBounds(200, 200, 500, 600);
+      f.setBounds(200, 200, 500, 630);
       f.setLayout(null);
       
     
@@ -90,11 +92,31 @@ public class Appoint1 {
       f.add(btn2);
       
       
+      btn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FrameMain reserve = new FrameMain();
+				f.setVisible(false);
+				reserve.createFrame();
+			}
+	    	
+	    });
       
-      
-      
+      btn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Appoint2 reserve = new Appoint2();
+				f.setVisible(false);
+				reserve.createFrame();
+			}
+	    	
+	    });
       f.setVisible(true);
       f.addWindowListener(new WindowAdapter() {
+    	  
+    	  
          @Override
          public void windowClosing(WindowEvent e) {
                System.exit(0);

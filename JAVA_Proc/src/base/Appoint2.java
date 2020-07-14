@@ -9,6 +9,8 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -18,11 +20,11 @@ import javax.swing.JTextField;
 
 public class Appoint2 {
 
-	public static void main(String[] args) {
-
-		Frame f = new Frame("진료예약 확인2");	
+	public void createFrame() {
+		// TODO Auto-generated method stub
+		JFrame f = new JFrame("진료예약 확인2");	
 		
-		f.setBounds(200, 200, 500, 600);
+		f.setBounds(200, 200, 500, 630);
 		f.setLayout(null);
 		
 		Font font = new Font("맑은고딕",Font.BOLD,30);
@@ -86,10 +88,28 @@ public class Appoint2 {
 		f.add(btn2);
 		
 		f.setVisible(true);
+		
+		
+		btn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FrameMain reserve = new FrameMain();
+				f.setVisible(false);
+				reserve.createFrame();
+			}
+	    	
+	    });
+		
+		
 		f.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 					System.exit(0);
 				}	
 		});
-	}}
+	}
+
+	
+		
+	}
