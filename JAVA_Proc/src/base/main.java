@@ -43,9 +43,9 @@ public class main {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				main2 m2 = new main2();
-//				frame.setVisible(false);
-//				m2.createFrame();
+				main2 m2 = new main2();
+				frame.setVisible(false);
+				m2.createFrame();
 			}
 			
 		});

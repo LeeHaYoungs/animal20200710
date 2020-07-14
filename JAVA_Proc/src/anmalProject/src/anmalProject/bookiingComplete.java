@@ -1,4 +1,4 @@
-package anmalProject;
+package anmalProject.src.anmalProject;
 
 import java.awt.BorderLayout;
 import java.awt.Button;

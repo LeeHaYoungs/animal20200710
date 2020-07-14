@@ -1,9 +1,9 @@
-package movieDAO;
+package GUI_Test.src.movieDAO;
 
 import java.util.ArrayList;
 
-import movieVO.Movie;
-import movieVO.MyMovie;
+import GUI_Test.src.movieVO.Movie;
+import GUI_Test.src.movieVO.MyMovie;
 
 public class MovieDAO {
 
@@ -116,7 +116,6 @@ public class MovieDAO {
 				if (list.get(i).getmName().equals(name)) {
 					
 					return list.get(i);
-					
 				}
 			}
 			return null;

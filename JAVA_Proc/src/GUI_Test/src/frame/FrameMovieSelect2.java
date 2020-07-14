@@ -1,4 +1,4 @@
-package frame;
+package GUI_Test.src.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import movieDAO.MovieDAO;
-import movieVO.Movie;
+import GUI_Test.src.movieDAO.MovieDAO;
+import GUI_Test.src.movieVO.Movie;
 
 public class FrameMovieSelect2 extends JPanel{
 
@@ -36,6 +36,8 @@ public class FrameMovieSelect2 extends JPanel{
 	         @Override
 	         public void actionPerformed(ActionEvent e) {
 	            Movie movie5 = new MovieDAO().searchMovie("당신거기있어줄래요");
+				FrameBase.getInstance( new FrameMovieInfo(movie5) );
+
 	         }
 	      });
 	      
@@ -53,6 +55,8 @@ public class FrameMovieSelect2 extends JPanel{
 	         @Override
 	         public void actionPerformed(ActionEvent e) {
 	            Movie movie6 = new MovieDAO().searchMovie("스파이더맨");
+				FrameBase.getInstance( new FrameMovieInfo(movie6) );
+
 	         }
 	      });
 	      
@@ -70,6 +74,8 @@ public class FrameMovieSelect2 extends JPanel{
 	         @Override
 	         public void actionPerformed(ActionEvent e) {
 	            Movie movie7 = new MovieDAO().searchMovie("어벤져스");
+				FrameBase.getInstance( new FrameMovieInfo(movie7) );
+
 	         }
 	      });
 	      
@@ -87,6 +93,8 @@ public class FrameMovieSelect2 extends JPanel{
 	         @Override
 	         public void actionPerformed(ActionEvent e) {
 	            Movie movie8 = new MovieDAO().searchMovie("부산행");
+				FrameBase.getInstance( new FrameMovieInfo(movie8) );
+
 	         }
 	      });
 	      
@@ -110,6 +118,8 @@ public class FrameMovieSelect2 extends JPanel{
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	               FrameBase.getInstance(new FrameMovieSelect());
+	
+
 	            }
 	         });
 	         

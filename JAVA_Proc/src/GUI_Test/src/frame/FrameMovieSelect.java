@@ -1,4 +1,4 @@
-package frame;
+package GUI_Test.src.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import movieDAO.MovieDAO;
-import movieVO.Movie;
+import GUI_Test.src.movieDAO.MovieDAO;
+import GUI_Test.src.movieVO.Movie;
 
 public class FrameMovieSelect extends JPanel {
 
@@ -36,6 +36,7 @@ public class FrameMovieSelect extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					Movie movie1 = new MovieDAO().searchMovie("라라랜드");
+					FrameBase.getInstance( new FrameMovieInfo(movie1) );
 					//포스터를 클릭해도 아직 상세보기는 제공하지 않고 있다.
 				}
 			});
@@ -54,6 +55,7 @@ public class FrameMovieSelect extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					Movie movie2 = new MovieDAO().searchMovie("말할수없는비밀");
+					FrameBase.getInstance( new FrameMovieInfo(movie2) );
 					//포스터를 클릭해도 아직 상세보기는 제공하지 않고 있다.
 				}
 			});
@@ -72,6 +74,8 @@ public class FrameMovieSelect extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					Movie movie3 = new MovieDAO().searchMovie("인사이드아웃");
+					FrameBase.getInstance( new FrameMovieInfo(movie3) );
+
 					//포스터를 클릭해도 아직 상세보기는 제공하지 않고 있다.
 				}
 			});
@@ -90,6 +94,8 @@ public class FrameMovieSelect extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					Movie movie4 = new MovieDAO().searchMovie("겨울왕국");
+					FrameBase.getInstance( new FrameMovieInfo(movie4) );
+
 					//포스터를 클릭해도 아직 상세보기는 제공하지 않고 있다.
 				}
 			});

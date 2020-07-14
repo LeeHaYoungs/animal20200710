@@ -1,4 +1,4 @@
-package frame;
+package GUI_Test.src.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,33 +10,32 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import movieDAO.MovieDAO;
-import movieVO.Movie;
-import movieVO.MyMovie;
+import GUI_Test.src.movieVO.Movie;
 
-public class FrameMovieConfirm extends JPanel {
-	
-	public FrameMovieConfirm( Movie m, MyMovie e ) {
+public class FrameMovieInfo extends JPanel {
 
-		//JPanel 구조
-		setBackground(new Color(0xFFD700));
+	public FrameMovieInfo( Movie m ) { //클릭한 이미지의 정보를 생성자 파라미터로 받는다.
+		// JPanel 구조
+		setBackground(new Color(250, 244, 192));
 		setLayout(null);
 		setSize(600, 800);
 
-		//영화 포스터
+		
+		// 포스터 부분
 		final int movieNum = 8;
 		int movieflag = 0;
 		String[] movieurl = { 
-				"라라랜드2.png", "말할수없는비밀2.jpg", "인사이드아웃2.png", 
-				"겨울왕국2.png", "당신거기있어줄래요2.png", "스파이더맨2.png",
-				"어벤져스2.png", "부산행2.png" };
+			"라라랜드2.png", "말할수없는비밀2.jpg", "인사이드아웃2.png", 
+			"겨울왕국2.png", "당신거기있어줄래요2.png", "스파이더맨2.png",
+			"어벤져스2.png", "부산행2.png" };
 
 		ImageIcon[] movieImg = new ImageIcon[movieNum];
+
 		for (int i = 0; i < movieNum; i++) {
-			movieImg[i] = new ImageIcon(movieurl[i]);
+	
+			movieImg[i] = new ImageIcon( movieurl[i] );
 			if (m.getmName().equals("라라랜드")) {
 				movieflag = 0;
 			} else if (m.getmName().equals("말할수없는비밀")) {
@@ -54,25 +53,43 @@ public class FrameMovieConfirm extends JPanel {
 			} else if (m.getmName().equals("부산행")) {
 				movieflag = 7;
 			}
-		}//for()
+		}//for
 
-		JLabel img = new JLabel(movieImg[movieflag]);
-		img.setBounds(155, 13, 285, 350);
+		JLabel img = new JLabel( movieImg[movieflag] );
+		img.setBounds(50, 13, 285, 350);
 		add(img);
 
-		//예매 정보 확인 창
+		// 영화 관련 정보 텍스트
 		TextArea story = new TextArea(
-				"\n◎ 영화제목 : " + m.getmName() + "\n\n" + 
-				"◎ 영화시간 : " + e.getTime() + "\n\n"
-				+ "◎ 좌     석 : " + e.getSeat() + "\n\n" + 
-				"◎ 금     액 : " + m.getPrice() + "원", 0, 0,
-				TextArea.SCROLLBARS_NONE);
-		
+				"\n◎영화제목" + "\n" + "   " + m.getmName() + 
+				"\n\n" + "◎평     점" + "\n" + "   " + 
+				String.format("%.1f", m.getScore()) + " / 5 점\n\n" + 
+				"◎줄 거 리" + "\n" + "   " + m.getStory(),
+				0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);
 		story.setSize(580, 280);
 		story.setLocation(0, 375);
 		story.setBackground(new Color(0xFFD700));
 		story.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		add(story);
+
+		// 등록된 후기 보기
+		JButton btnReview = new JButton("리뷰 보기");
+
+		btnReview.setBackground(new Color(229, 216, 92));
+		btnReview.setSize(150, 40);
+		btnReview.setLocation(400, 325);
+		btnReview.setFont(new Font("나눔고딕코딩", Font.BOLD, 18));
+
+		btnReview.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//리뷰보기 기능 추가 예정
+				new FrameReviewRead(m);
+
+			}
+		});
+		add(btnReview);
 
 		//하단의 버튼
 		JPanel bottomSet = new JPanel();
@@ -82,23 +99,42 @@ public class FrameMovieConfirm extends JPanel {
 		bottomSet.setBackground(new Color(0xFFD700));
 
 		JButton btnBack = new JButton("뒤로가기");
-
 		btnBack.setBackground(new Color(0xA6A6A6));
 		btnBack.setSize(183, 87);
 		btnBack.setLocation(5, 0);
 		btnBack.setFont(new Font("나눔고딕코딩", Font.BOLD, 22));
 		bottomSet.add(btnBack);
 
+		int buttonNum = movieflag;
 		btnBack.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				FrameBase.getInstance(new FrameReserve(m));
+				if (0 <= buttonNum && buttonNum <= 3) {
+					FrameBase.getInstance(new FrameMovieSelect());
+				} else {
+					FrameBase.getInstance(new FrameMovieSelect2());
+				}
 			}
 		});
 
-		//최종결제 버튼
-		JButton btnBuy = new JButton("결제하기");
+		JButton btnHome = new JButton("처음 화면으로");
+
+		btnHome.setBackground(new Color(0xA6A6A6));
+		btnHome.setSize(183, 87);
+		btnHome.setLocation(198, 0);
+		btnHome.setFont(new Font("나눔고딕코딩", Font.BOLD, 22));
+		bottomSet.add(btnHome);
+
+		btnHome.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FrameBase.getInstance(new FrameBegin());
+			}
+		});
+
+		JButton btnBuy = new JButton("예매하기");
 
 		btnBuy.setBackground(new Color(0xA6A6A6));
 		btnBuy.setSize(183, 87);
@@ -106,19 +142,13 @@ public class FrameMovieConfirm extends JPanel {
 		btnBuy.setFont(new Font("나눔고딕코딩", Font.BOLD, 22));
 		bottomSet.add(btnBuy);
 
-		//결제하기 버튼 클릭
 		btnBuy.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent a) {
-				new MovieDAO().addReserveInfo(e);
-				JOptionPane.showMessageDialog(
-					null, "영화제목 : " + m.getmName() + "\n" + 
-					"영화시간 : " + e.getTime() + "\n" + 
-					"좌석 : " + e.getSeat() + "\n" + 
-					"금액 : " + m.getPrice() + "원 입니다.");
-				//결제를 마치고 첫 페이지로 보낸다.
-				FrameBase.getInstance(new FrameBegin());
+			public void actionPerformed(ActionEvent e) {
+				//예매하기 기능 추가 예정
+				FrameBase.getInstance(new FrameReserve(m));
+
 			}
 		});
 
