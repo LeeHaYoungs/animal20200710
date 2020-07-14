@@ -1,7 +1,7 @@
-package GUI_Test.src.main;
+package main;
 
-import GUI_Test.src.frame.FrameBase;
-import GUI_Test.src.frame.FrameBegin;
+import frame.FrameBase;
+import frame.FrameBegin;
 
 public class MovieProMain {
 

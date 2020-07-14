@@ -1,4 +1,4 @@
-package GUI_Test.src.frame;
+package frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import GUI_Test.src.movieVO.Movie;
+import movieVO.Movie;
 
 public class FrameMovieInfo extends JPanel {
 

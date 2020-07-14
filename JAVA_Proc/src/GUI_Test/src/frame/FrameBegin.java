@@ -1,4 +1,4 @@
-package GUI_Test.src.frame;
+package frame;
 
 import java.awt.Color;
 import java.awt.Font;

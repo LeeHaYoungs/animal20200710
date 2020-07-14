@@ -1,4 +1,4 @@
-package GUI_Test.src.movieVO;
+package movieVO;
 
 public class MyMovie {
 	// 예매정보(영화 이름, 시간대, 좌석)

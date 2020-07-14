@@ -1,9 +1,9 @@
-package GUI_Test.src.movieDAO;
+package movieDAO;
 
 import java.util.ArrayList;
 
-import GUI_Test.src.movieVO.Movie;
-import GUI_Test.src.movieVO.MyMovie;
+import movieVO.Movie;
+import movieVO.MyMovie;
 
 public class MovieDAO {
 

@@ -1,4 +1,4 @@
-package GUI_Test.src.movieVO;
+package movieVO;
 
 public class Movie {
 

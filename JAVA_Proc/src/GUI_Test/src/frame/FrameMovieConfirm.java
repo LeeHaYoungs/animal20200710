@@ -1,4 +1,4 @@
-package GUI_Test.src.frame;
+package frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,9 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import GUI_Test.src.movieDAO.MovieDAO;
-import GUI_Test.src.movieVO.Movie;
-import GUI_Test.src.movieVO.MyMovie;
+import movieDAO.MovieDAO;
+import movieVO.Movie;
+import movieVO.MyMovie;
 
 public class FrameMovieConfirm extends JPanel {
 	

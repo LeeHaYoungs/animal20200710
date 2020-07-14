@@ -1,4 +1,4 @@
-package GUI_Test.src.frame;
+package frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
-import GUI_Test.src.movieDAO.MovieDAO;
+import movieDAO.MovieDAO;
 
 public class FrameMovieReview extends JPanel {
 	public FrameMovieReview() {

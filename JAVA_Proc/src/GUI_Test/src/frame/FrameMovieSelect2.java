@@ -1,4 +1,4 @@
-package GUI_Test.src.frame;
+package frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import GUI_Test.src.movieDAO.MovieDAO;
-import GUI_Test.src.movieVO.Movie;
+import movieDAO.MovieDAO;
+import movieVO.Movie;
 
 public class FrameMovieSelect2 extends JPanel{
 

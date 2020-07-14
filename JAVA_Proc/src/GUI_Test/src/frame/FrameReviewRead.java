@@ -1,4 +1,4 @@
-package GUI_Test.src.frame;
+package frame;
 
 import java.awt.Font;
 import java.awt.Frame;
@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
-import GUI_Test.src.movieVO.Movie;
+import movieVO.Movie;
 
 public class FrameReviewRead extends JFrame{
 
