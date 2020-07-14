@@ -49,10 +49,10 @@ public class Enroll {
 	public void setBreeds(String breeds) {
 		this.breeds = breeds;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public boolean isNeutered() {
