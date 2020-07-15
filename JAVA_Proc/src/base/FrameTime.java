@@ -9,6 +9,8 @@ import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
@@ -17,9 +19,13 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class FrameTime {
+import com.sun.media.sound.DirectAudioDeviceProvider;
 
-	public static void main(String[] args) {
+import calendar.DiaryModel;
+
+public class FrameTime {
+		
+	public void createFrame() {
 		Frame f = new Frame("진료 시간 선택 페이지");
 		f.setBounds(0, 100, 400, 600);
 		f.setBackground(Color.lightGray);
@@ -96,6 +102,29 @@ public class FrameTime {
 		f.add(pCon);
 
 		f.setVisible(true);
+		
+		// ** 이전화면 이벤트 추가 **
+		btn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new FrameDiary(new DiaryModel()); 
+				f.setVisible(false);
+				//confirm.createFrame(null);
+			}
+		});
+		
+		// ** 진료예약 확인 이벤트 추가 **
+		btn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FrameReserveConfirm confirm = new FrameReserveConfirm();
+				confirm.createFrame(null);
+				f.setVisible(false);
+			}
+		});
+		
 		f.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {

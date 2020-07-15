@@ -20,10 +20,11 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
-import ReseveVO.Reserve;
+import ReseveVO.MyReserve;
 
 public class FrameReserveConfirm {
-	public void createFrame(Reserve reserveList) {
+	public void createFrame(Enroll enroll) {
+		
 		Frame f = new Frame("진료 예약 완료");
 		f.setBounds(0, 100, 400, 600);
 		f.setBackground(Color.lightGray);
@@ -36,8 +37,7 @@ public class FrameReserveConfirm {
 		Panel pCon = new Panel();
 		pCon.setLayout(null);
 		pCon.setSize(400, 500);
-
-		//
+		
 		Panel pTitle = new Panel();
 		pTitle.setSize(400, 50);
 		Label title = new Label("예약정보");
@@ -50,7 +50,7 @@ public class FrameReserveConfirm {
 		Panel pConL = new Panel();
 		pConL.setSize(120, 400);
 		pConL.setLocation(50, 60);
-		Label reserveDate = new Label("날짜, 시간 : ", Label.RIGHT);
+		Label reserveDate = new Label("날짜, 시간 : " , Label.RIGHT);
 		pConL.add(reserveDate);
 		Label animalname = new Label("동물명 : ", Label.RIGHT);
 		pConL.add(animalname);
@@ -60,21 +60,27 @@ public class FrameReserveConfirm {
 		pConL.add(phone);
 
 		pCon.add(pConL);
+		
+		Panel pConR = new Panel();
+		pConR.setSize(170, 400);
+		pConR.setLocation(150, 90);
 
-//		Panel pConR = new Panel();
-//		pConR.setSize(190, 400);
-//		pConR.setLocation(150, 60);
-//		TextField reserveDateA = new TextField(16);
-//		reserveDate.setEnabled(false);
-//		TextField animalnameA = new TextField(16);
-//		pConR.add(reserveDate);
-//		pConR.add(animalnameA);
-//		TextField nameA = new TextField(16);
-//		TextField phoneA = new TextField(16);
-//		pConR.add(nameA);
-//		pConR.add(phoneA);
-//
-//		pCon.add(pConR);
+		TextField animalnameA = new TextField(14);
+		pConR.add(animalnameA);
+		CheckboxGroup rGroup1 = new CheckboxGroup();
+		Checkbox M = new Checkbox("수컷", rGroup1, true);
+		Checkbox FM = new Checkbox("암컷", rGroup1, false);
+		TextField animalcateA = new TextField(14);
+		TextField animalageA = new TextField(14);
+		CheckboxGroup rGroup2 = new CheckboxGroup();
+		Checkbox genderX = new Checkbox("유", rGroup2, true);
+		Checkbox genderO = new Checkbox("무", rGroup2, false);
+		TextField nameA = new TextField(14);
+		TextField phoneA = new TextField(14);
+		pConR.add(nameA);
+		pConR.add(phoneA);
+		
+		pCon.add(pConR);
 
 		Button btn1 = new Button("메인화면");
 		btn1.setSize(200, 50);
@@ -84,6 +90,9 @@ public class FrameReserveConfirm {
 		f.add(pCon);
 		f.setVisible(true);
 
+		
+
+		
 		// ** 메인화면이동 이벤트 추가 **
 		btn1.addActionListener(new ActionListener() {
 

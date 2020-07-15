@@ -9,6 +9,8 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import base.FrameTime;
+
 public class DateButton extends JButton implements ActionListener
 {
 	private DiaryModel calendar; // address of the Diary model
@@ -32,13 +34,19 @@ public class DateButton extends JButton implements ActionListener
 				public void mouseClicked(MouseEvent e) {
 					int input = JOptionPane.showConfirmDialog(null, "선택하신 날짜는 "+selectDate+" 입니다", "예약일자확인",
 							JOptionPane.YES_NO_OPTION);
+	
 					System.out.println(input);
 					// yes-0, no-1
 
-					/*
-					 * if(input==0) { FrameMain reserve = new FrameMain(); f.setVisible(false);
-					 * reserve.createFrame(); }
-					 */
+					
+					  if(input==0) { 
+						  
+					  FrameTime reserve = new FrameTime();
+					  reserve.createFrame(); 
+					  setVisible(false); 
+					  
+					  }
+					 
 				}
 
 			});

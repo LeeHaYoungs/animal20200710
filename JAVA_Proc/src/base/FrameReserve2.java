@@ -22,7 +22,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
-import ReseveVO.Reserve;
+import ReseveVO.MyReserve;
 import calendar.DiaryModel;
 
 

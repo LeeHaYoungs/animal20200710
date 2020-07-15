@@ -16,7 +16,9 @@ public class Enroll {
 
     
     //»ý¼ºÀÚ
-    
+   public Enroll(){
+	   
+   }
     public Enroll(String animalname, String animalgender, String animalcate, int animalage, boolean genderless,
             String name, String phone,int sirialNum) {
          this.animalname = animalname;

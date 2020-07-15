@@ -21,7 +21,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
-import ReseveVO.Reserve;
+import ReseveVO.MyReserve;
 import calendar.DiaryModel;
 
 public class FrameReserve{
@@ -30,11 +30,6 @@ public class FrameReserve{
        f.setBounds(0,100,400,600);
        f.setBackground(Color.lightGray);
        f.setLayout(new BorderLayout());
-       
-       
-       
-       
-       
        
        //ÆùÆ®
        Font fontTitle=new Font(Font.SANS_SERIF,Font.BOLD,24);
@@ -172,7 +167,7 @@ public class FrameReserve{
 
          @Override
          public void actionPerformed(ActionEvent e) {
-            
+        	// new FrameCalendar();
             new FrameDiary(new DiaryModel());
             f.setVisible(false);
             

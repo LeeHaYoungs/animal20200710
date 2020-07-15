@@ -1,8 +1,7 @@
 package base;
-import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Choice;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -32,7 +33,7 @@ import calendar.UpdateableView;
   *   @version 0.1 2001.12.16 */
 public class FrameDiary extends JFrame implements UpdateableView
 {  
-	private DiaryModel calendar;   // the model; 
+   private DiaryModel calendar;   // the model; 
    
    private DateButton[] button;  // the buttons on the face of the view
    private JLabel titleLabel;
@@ -62,8 +63,8 @@ public class FrameDiary extends JFrame implements UpdateableView
          e.printStackTrace();
         }
        
-       setBackground(Color.lightGray);
-      setLayout(new BorderLayout());
+      setBackground(Color.darkGray);
+      setLayout(new FlowLayout());
 
       // 폰트
       Font fontTitle = new Font(Font.SANS_SERIF, Font.BOLD, 24);
@@ -71,7 +72,7 @@ public class FrameDiary extends JFrame implements UpdateableView
 
       Panel pCon = new Panel();
       pCon.setLayout(null);
-      pCon.setSize(400, 500);
+      pCon.setSize(400, 600);
 
       //
       Panel pTitle = new Panel();
@@ -81,14 +82,14 @@ public class FrameDiary extends JFrame implements UpdateableView
       pTitle.setFont(fontTitle);
       pTitle.setLocation(0, 0);
       pTitle.add(title);
-      add(pTitle);
+      pCon.add(pTitle);
       
       //상단의 년도와 달 이동 버튼 패널과 요일 레이블 패널
       JPanel upperPanel = new JPanel();   
       //상단의 년도와 달 이동 버튼 패널
-      JPanel titlePanel = new JPanel(new FlowLayout());
-      titlePanel.setSize(400, 50);
-      titlePanel.setLocation(0, 51);
+      JPanel titlePanel = new JPanel();
+      upperPanel.setSize(400, 50);
+      upperPanel.setLocation(0, 51);
       titlePanel.add(new PrevMonthButton(" <  ", calendar, this)); 
       titleLabel = new JLabel();
       titleLabel.setForeground(Color.DARK_GRAY);
@@ -101,7 +102,9 @@ public class FrameDiary extends JFrame implements UpdateableView
       
       //   //상단의 요일 라벨 패널, 가운데 날짜 버튼 패널
       JPanel datePanel = new JPanel(new GridLayout(7, 7));
-      datePanel.setBorder(BorderFactory.createRaisedBevelBorder()); //테두리
+      datePanel.setSize(400, 400);
+      datePanel.setLocation(0, 51);
+      //datePanel.setBorder(BorderFactory.createRaisedBevelBorder()); //테두리
       JLabel label;
       datePanel.add(label = new JLabel("     일"));
       label.setForeground(Color.red);
@@ -137,17 +140,37 @@ public class FrameDiary extends JFrame implements UpdateableView
       bottomPanel.add(new AcceptButton("  Go  ", yearField, monthChoice, calendar, this));
 
       //Add top, center and bottom panel to content pane
-      Container content = getContentPane();
-      content.setLayout(new BorderLayout());
-      content.add(upperPanel, BorderLayout.NORTH);
-      content.add(datePanel , BorderLayout.CENTER);
-      content.add(bottomPanel , BorderLayout.SOUTH);
+     // Container content = getContentPane();
+      //content.setLayout(new BorderLayout());
+     
+     pCon.add(upperPanel);
+     pCon.add(datePanel);
+     pCon.add(bottomPanel);
+     
+     Button btn1 = new Button("< 이전");
+     btn1.setSize(200, 50);
+     btn1.setLocation(100,515);
+     pCon.add(btn1);
+     
+     add(pCon);
 
       update();  // initialize the pieces with their numbers
 
       addWindowListener(new ExitController()); // activates X-button
       setTitle("BOA4 동물병원");
       setVisible(true);
+      
+   // ** 이전화면이동 이벤트 추가 **
+      btn1.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           FrameReserve reserve = new FrameReserve();
+            setVisible(false);
+            reserve.createFrame();
+        }
+         
+      });
    }
 
   /** update  consults the model and repaints each button */
