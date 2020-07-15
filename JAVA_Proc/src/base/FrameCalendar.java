@@ -27,6 +27,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import EnrollVO.Enroll;
+
 public class FrameCalendar extends JFrame implements ActionListener {
 
 	// North
@@ -118,6 +120,18 @@ public class FrameCalendar extends JFrame implements ActionListener {
 		pSouth.add(btn2);
 		f.add(pSouth, "South");
 		f.setVisible(true);
+		
+		// ** 이전화면 이벤트 추가 **
+		btn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FrameReserve reserve = new FrameReserve();
+				f.setVisible(false);
+				reserve.createFrame(null);
+			}
+		});
+		
 		// ** 진료예약 확인 이벤트 추가 **
 				btn2.addActionListener(new ActionListener() {
 
@@ -128,6 +142,8 @@ public class FrameCalendar extends JFrame implements ActionListener {
 						confirm.createFrame(null);
 					}
 				});
+				
+				
 		prevBtn.addActionListener(this);
 		nextBtn.addActionListener(this);
 		yearCombo.addActionListener(this);
