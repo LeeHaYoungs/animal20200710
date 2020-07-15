@@ -139,8 +139,9 @@ public class FrameEnroll {
 						Integer.parseInt(animalageA.getText()),
 						genderless_check, nameA.getText(), phoneA.getText(), 0);
 				FrameReserve2 reserve = new FrameReserve2();
-				f.setVisible(false);
+				
 				reserve.createFrame(enroll);
+				f.setVisible(false);
 			}
 		});
 

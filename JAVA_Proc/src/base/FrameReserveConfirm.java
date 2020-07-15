@@ -90,8 +90,9 @@ public class FrameReserveConfirm {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				FrameMain reserve = new FrameMain();
-				f.setVisible(false);
+				
 				reserve.createFrame();
+				f.setVisible(false);
 			}
 		});
 

@@ -67,8 +67,9 @@ public class FrameMain {
          @Override
          public void actionPerformed(ActionEvent e) {
             FrameReserve reserve = new FrameReserve();
-            f.setVisible(false);
+            
             reserve.createFrame();
+            f.setVisible(false);
          }
       });
       
@@ -78,8 +79,9 @@ public class FrameMain {
          @Override
          public void actionPerformed(ActionEvent e) {
             Appoint1 reserve = new Appoint1();
-            f.setVisible(false);
+            
             reserve.createFrame();
+            f.setVisible(false);
             
          }
       });

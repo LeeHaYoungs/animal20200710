@@ -97,8 +97,9 @@ public class Appoint1 {
          @Override
          public void actionPerformed(ActionEvent e) {
             Appoint2 reserve = new Appoint2();
-            f.setVisible(false);
+            
             reserve.createFrame();
+            f.setVisible(false);
          }
           
        });

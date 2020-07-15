@@ -4,9 +4,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-/** DiaryModel models a diary. 
-  *	@author Park Sung Jae
-  *	@version 0.1 2001.12.16 */
 public class DiaryModel
 { 
 	public static final int NUM_CELL = 37;	//³¯Â¥ ¹öÆ°ÀÇ ÃÑ °¹¼ö

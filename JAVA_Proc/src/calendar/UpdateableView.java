@@ -1,4 +1,4 @@
 package calendar;
-public interface UpdateableView
-{ public void update(); }
-
+public interface UpdateableView {
+	public void update();
+}

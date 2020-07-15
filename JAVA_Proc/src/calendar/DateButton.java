@@ -9,14 +9,9 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-/** DateButton implements a button controller for a diary 
-  *	@author Park Sung Jae
-  *	@version 0.1 2001.12.16 */
 public class DateButton extends JButton implements ActionListener
 {
 	private DiaryModel calendar; // address of the Diary model
-  /** Constructor PuzzleButton builds the button
-    * @param my_calendar - the address of the diary model object */
 	public DateButton(DiaryModel my_calendar)
 	{ 
 		super(""); // set label to nothing, but this will be repainted by the view
@@ -25,7 +20,6 @@ public class DateButton extends JButton implements ActionListener
 		addActionListener(this);
 	}
 
-  /** actionPerformed processes open a text editor */
 	public void actionPerformed(ActionEvent evt)
 	{ 
 		if ( !getText().equals("") )   // it's not the blank space, is it?

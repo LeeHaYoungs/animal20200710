@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
 import ReseveVO.Reserve;
+import calendar.DiaryModel;
 
 
 //FrameEnroll에서 등록한 정보를 받아온 예약 페이지
@@ -166,8 +167,9 @@ public class FrameReserve2{
             //yes-0, no-1
             if(input==1) {
                FrameEnroll enroll = new FrameEnroll();
-               f.setVisible(false);
+               
                enroll.createFrame();
+               f.setVisible(false);
             }else {
                sirialNumA.setEnabled(true);
 
@@ -190,8 +192,9 @@ public class FrameReserve2{
          @Override
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
-            f.setVisible(false);
+           
             reserve.createFrame();
+            f.setVisible(false);
          }
 
       });
@@ -203,9 +206,9 @@ public class FrameReserve2{
         public void actionPerformed(ActionEvent e) {
            
            
-           f.setVisible(false);
-           new FrameCalendar();
            
+           new FrameDiary(new DiaryModel());
+           f.setVisible(false);
 //           Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //           
 //           

@@ -160,8 +160,9 @@ public class FrameReserve{
          @Override
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
-            f.setVisible(false);
+            
             reserve.createFrame();
+            f.setVisible(false);
          }
           
        });
@@ -172,9 +173,8 @@ public class FrameReserve{
          @Override
          public void actionPerformed(ActionEvent e) {
             
-            
-            f.setVisible(false);
             new FrameDiary(new DiaryModel());
+            f.setVisible(false);
             
 //            Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //            
