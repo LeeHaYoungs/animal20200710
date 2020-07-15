@@ -8,18 +8,13 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import com.sun.media.sound.DirectAudioDeviceProvider;
 
 import calendar.DiaryModel;
 
@@ -80,15 +75,15 @@ public class FrameTime {
 
 		Choice time = new Choice();
 		time.add("예약 시간 선택");
-		time.add("am: 09~10");
-		time.add("am: 10~11");
-		time.add("am: 11~12");
-		time.add("pm: 00~01");
-		time.add("pm: 01~02");
-		time.add("pm: 02~03");
-		time.add("pm: 03~04");
-		time.add("pm: 04~05");
-		time.add("pm: 05~06");
+		time.add("am: 09:00~10:00");
+		time.add("am : 10:00~11:00");
+		time.add("am : 11:00~12:00");
+		time.add("pm : 12:00~01:00");
+		time.add("pm : 01:00~02:00");
+		time.add("pm : 02:00~03:00");
+		time.add("pm : 03:00~04:00");
+		time.add("pm : 04:00~05:00");
+		time.add("pm : 05:00~06:00");
 
 		time.setSize(100, 50);
 		time.setLocation(50, 100);
