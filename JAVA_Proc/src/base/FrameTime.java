@@ -42,7 +42,7 @@ public class FrameTime {
 
 		Panel pTitle = new Panel();
 		pTitle.setSize(400, 50);
-		Label title = new Label("시간 예약");
+		Label title = new Label("예약 시간 선택");
 		pTitle.setBackground(Color.pink);
 		pTitle.setFont(fontTitle);
 		pTitle.setLocation(0, 30);
