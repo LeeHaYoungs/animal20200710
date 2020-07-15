@@ -23,13 +23,9 @@ public class Appoint1 {
 
    public void createFrame() {
 
-<<<<<<< HEAD
-      Frame f=new Frame("진료예약 확인");
-        f.setBounds(0,100,400,600);
-=======
 		Frame f=new Frame("진료예약 확인");
   		f.setBounds(0,100,400,600);
->>>>>>> refs/remotes/origin/master
+
           f.setBackground(Color.lightGray);
           f.setLayout(new BorderLayout());
           
@@ -98,7 +94,6 @@ public class Appoint1 {
       
       btn2.addActionListener(new ActionListener() {
 
-<<<<<<< HEAD
          @Override
          public void actionPerformed(ActionEvent e) {
             Appoint2 reserve = new Appoint2();
@@ -107,16 +102,7 @@ public class Appoint1 {
          }
           
        });
-=======
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Appoint2 reserve = new Appoint2();
-				f.setVisible(false);
-				reserve.createFrame();
-			}
-	    	
-	    });
->>>>>>> refs/remotes/origin/master
+
     
       f.addWindowListener(new WindowAdapter() {
          

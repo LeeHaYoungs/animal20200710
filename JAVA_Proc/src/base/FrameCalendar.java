@@ -128,7 +128,7 @@ public class FrameCalendar extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				FrameReserve reserve = new FrameReserve();
 				f.setVisible(false);
-				reserve.createFrame(null);
+				reserve.createFrame();
 			}
 		});
 		
