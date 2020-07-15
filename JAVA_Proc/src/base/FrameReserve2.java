@@ -33,7 +33,9 @@ public class FrameReserve2{
       f.setBackground(Color.lightGray);
       f.setLayout(new BorderLayout());
 
-
+      int input=JOptionPane.showConfirmDialog(null,"등록번호가 발급되었습니다.","선택창", JOptionPane.CLOSED_OPTION);
+      System.out.println(input);
+      
       //폰트
       Font fontTitle=new Font(Font.SANS_SERIF,Font.BOLD,24);
       Font fontCon=new Font("맑은 고딕",Font.PLAIN,16);
