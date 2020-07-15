@@ -80,6 +80,7 @@ public class FrameMain {
             Appoint1 reserve = new Appoint1();
             f.setVisible(false);
             reserve.createFrame();
+            
          }
       });
    }

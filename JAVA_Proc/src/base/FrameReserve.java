@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
 import ReseveVO.Reserve;
+import calendar.DiaryModel;
 
 public class FrameReserve{
    public void createFrame() {
@@ -173,7 +174,7 @@ public class FrameReserve{
             
             
             f.setVisible(false);
-            new FrameCalendar();
+            new FrameDiary(new DiaryModel());
             
 //            Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //            
