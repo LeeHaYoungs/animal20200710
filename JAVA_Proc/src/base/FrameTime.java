@@ -8,18 +8,13 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import com.sun.media.sound.DirectAudioDeviceProvider;
 
 import calendar.DiaryModel;
 
@@ -47,7 +42,7 @@ public class FrameTime {
 
 		Panel pTitle = new Panel();
 		pTitle.setSize(400, 50);
-		Label title = new Label("시간 예약");
+		Label title = new Label("예약 시간 선택");
 		pTitle.setBackground(Color.pink);
 		pTitle.setFont(fontTitle);
 		pTitle.setLocation(0, 30);
