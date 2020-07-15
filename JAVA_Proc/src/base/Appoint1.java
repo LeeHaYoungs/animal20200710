@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -44,6 +45,11 @@ public class Appoint1 {
           pTitle.setLocation(0, 30);
           pTitle.add(title);
           f.add(pTitle);
+          
+          ImageIcon img = new ImageIcon("강아지와 고양이.jpg");
+  		JLabel j1 = new JLabel(img);
+  		j1.setBounds(50,200,300,300);
+  		f.add(j1);
           
           Panel pConL = new Panel();
           pConL.setSize(120, 400);
