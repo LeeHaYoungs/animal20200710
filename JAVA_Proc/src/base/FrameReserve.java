@@ -74,7 +74,7 @@ public class FrameReserve{
 	    
 	    
 	    Panel pConR = new Panel();
-	    pConR.setSize(190, 400);
+	    pConR.setSize(170, 400);
 	    pConR.setLocation(150, 60);
 	    CheckboxGroup rGroup1= new CheckboxGroup(); 
 	    Checkbox dog=new Checkbox("개",rGroup1,false);
@@ -184,6 +184,11 @@ public class FrameReserve{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				f.setVisible(false);
+				new FrameCalendar();
+				
 //				Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //				
 //				

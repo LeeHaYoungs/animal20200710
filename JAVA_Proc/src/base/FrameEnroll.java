@@ -62,7 +62,7 @@ public class FrameEnroll {
            pCon.add(pConL);
            
            Panel pConR = new Panel();
-           pConR.setSize(190, 400);
+           pConR.setSize(170, 400);
            pConR.setLocation(150, 90);
         
            TextField animalnameA=new TextField(16);
