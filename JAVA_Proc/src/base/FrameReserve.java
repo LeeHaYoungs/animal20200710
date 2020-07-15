@@ -126,6 +126,17 @@ public class FrameReserve{
 	    		M.setEnabled(true);
 	    	}else
 	    		FM.setEnabled(true);
+	    	animalnameA.setText(enroll.getAnimalname());
+	    	
+	    }else {
+//	    	Checkbox dog=new Checkbox("개",rGroup1,false);
+//	 	    Checkbox cat=new Checkbox("고양이",rGroup1,false);
+//	 	    
+//		    Checkbox M=new Checkbox("수컷",rGroup2,true);
+//		    Checkbox FM=new Checkbox("암컷",rGroup2,false);
+//		    
+//		    Checkbox genderX=new Checkbox("유",rGroup3,true);
+//		    Checkbox genderO=new Checkbox("무",rGroup3,false); 
 	    }
 	    
 	       //개를 누르면 메세지 팝업창이 뜨고 그 후에 등록창으로 이동
