@@ -70,9 +70,7 @@ public class FrameReserveConfirm {
 		pConR.setSize(150, 158);
 		pConR.setLocation(180,64);
 
-		pConR.setSize(500, 105);
-		pConR.setLocation(180,63);
-	
+
 
 		Label reserveDateA = new Label(enrollList.get(index).getDate(), Label.LEFT);
 		pConR.add(reserveDateA);
