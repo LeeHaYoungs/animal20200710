@@ -10,5 +10,4 @@ public class AnimalMain {
 		FrameMain main = new FrameMain();
 		main.createFrame(null);
 	}
-
 }

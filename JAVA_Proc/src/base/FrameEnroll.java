@@ -121,17 +121,6 @@ public class FrameEnroll {
 		} else
 			genderless_check = false;
 
-		  //취소버튼 (뒤페이지 진료예약페이지로)
-        btn1.addActionListener(new ActionListener() {
-
-          @Override
-          public void actionPerformed(ActionEvent e) {
-             FrameReserve reserve = new FrameReserve();
-              reserve.createFrame(enrollList);
-              f.setVisible(false);
-          }
-           
-        });
 		
 		// 등록
 		btn2.addActionListener(new ActionListener() {

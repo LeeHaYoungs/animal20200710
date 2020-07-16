@@ -67,8 +67,10 @@ public class FrameReserveConfirm {
 		pConR.setSize(500, 105);
 		pConR.setLocation(180,63);
 	
-		Label reserveDateA = new Label(enrollList.get(index).getDate()+","+enrollList.get(index).getTime(), Label.LEFT);
+		Label reserveDateA = new Label(enrollList.get(index).getDate(), Label.LEFT);
 		pConR.add(reserveDateA);
+		Label reserveTimeA = new Label(enrollList.get(index).getTime(), Label.LEFT);
+		pConR.add(reserveTimeA);
 		Label animalnameA = new Label(enrollList.get(index).getAnimalname(), Label.LEFT);
 		pConR.add(animalnameA);
 		Label nameA = new Label(enrollList.get(index).getName(), Label.LEFT);

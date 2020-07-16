@@ -74,7 +74,7 @@ public class Appoint2 {
 		Label time = new Label("시간 : "+ enrollList.get(existindex).getTime(), Label.LEFT);
 		pConL.add(time);
 		Label thanks = new Label("예약해주셔서 ㄱㅅㄳ", Label.LEFT);
-		pConL.add(time);
+		pConL.add(thanks);
 		
 		pCon.add(pConL);
 		
