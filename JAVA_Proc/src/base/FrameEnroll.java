@@ -66,13 +66,13 @@ public class FrameEnroll {
 		pConR.setSize(170, 400);
 		pConR.setLocation(160, 90);
 
-		TextField animalnameA = new TextField(14);
+		TextField animalnameA = new TextField(18);
 		pConR.add(animalnameA);
 		CheckboxGroup rGroup1 = new CheckboxGroup();
 		Checkbox M = new Checkbox("수컷", rGroup1, true);
 		Checkbox FM = new Checkbox("암컷", rGroup1, false);
-		TextField animalcateA = new TextField(14);
-		TextField animalageA = new TextField(14);
+		TextField animalcateA = new TextField(18);
+		TextField animalageA = new TextField(18);
 		pConR.add(M);
 		pConR.add(FM);
 		pConR.add(animalcateA);
@@ -82,8 +82,8 @@ public class FrameEnroll {
 		Checkbox genderO = new Checkbox("무", rGroup2, false);
 		pConR.add(genderX);
 		pConR.add(genderO);
-		TextField nameA = new TextField(14);
-		TextField phoneA = new TextField(14);
+		TextField nameA = new TextField(18);
+		TextField phoneA = new TextField(18);
 		pConR.add(nameA);
 		pConR.add(phoneA);
 
@@ -177,6 +177,18 @@ public class FrameEnroll {
 				
 			}
 		});
+		
+		  //취소버튼 (뒤페이지 진료예약페이지로)
+	      btn1.addActionListener(new ActionListener() {
+
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	           FrameReserve reserve = new FrameReserve();
+	            reserve.createFrame();
+	            f.setVisible(false);
+	        }
+	         
+	      });
 
 		f.addWindowListener(new WindowAdapter() {
 			@Override
