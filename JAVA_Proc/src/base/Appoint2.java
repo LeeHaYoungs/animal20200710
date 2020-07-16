@@ -114,8 +114,10 @@ public class Appoint2 {
 		
 		f.setVisible(true);
 
+		 int input=JOptionPane.showConfirmDialog(null,"예약해주셔서 감사합니다.","선택창", JOptionPane.CLOSED_OPTION);
+		 
 		btn1.addActionListener(new ActionListener() {
-			int input=JOptionPane.showConfirmDialog(null,"예약해주셔서 감사합니다","감사인사", JOptionPane.YES_OPTION);
+			
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
