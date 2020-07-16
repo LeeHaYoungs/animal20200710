@@ -64,14 +64,26 @@ public class Appoint2 {
 		
 		pConL.setSize(230, 200);
 		pConL.setLocation(50, 90);
-		Label animalname = new Label("동물명 : "+ "1", Label.LEFT);
+		
+		Label animalname = new Label("동물명 : "+ myreserve.getAnimalName(), Label.RIGHT);
 		pConL.add(animalname);
-		Label name = new Label("보호자명 : "+ "1", Label.LEFT);
+		Label name = new Label("보호자명 : "+ myreserve.getName(), Label.RIGHT);
 		pConL.add(name);
-		Label date = new Label("날짜 : "+ "2020년 7월22일", Label.LEFT);
+		Label date = new Label("날짜 : "+ myreserve.getDate(), Label.LEFT);
 		pConL.add(date);
-		Label time = new Label("시간 : "+ "am : 10:00~11:00", Label.LEFT);
+		Label time = new Label("시간 : "+ myreserve.getTime(), Label.LEFT);
 		pConL.add(time);
+		
+		pCon.add(pConL);
+		
+//		Label animalname = new Label("동물명 : "+ "1", Label.LEFT);
+//		pConL.add(animalname);
+//		Label name = new Label("보호자명 : "+ "1", Label.LEFT);
+//		pConL.add(name);
+//		Label date = new Label("날짜 : "+ "2020년 7월22일", Label.LEFT);
+//		pConL.add(date);
+//		Label time = new Label("시간 : "+ "am : 10:00~11:00", Label.LEFT);
+//		pConL.add(time);
 		
 		animalname.setFont(fontCon);
 		name.setFont(fontCon);
@@ -119,7 +131,7 @@ public class Appoint2 {
 			}
 		});
 	}
-	public static void main(String[] args) {
-		new Appoint2().createFrame(null, null);
-	}
+//	public static void main(String[] args) {
+//		new Appoint2().createFrame(null, null);
+//	}
 }
