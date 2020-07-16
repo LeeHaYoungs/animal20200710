@@ -19,7 +19,7 @@ import EnrollVO.Enroll;
 
 public class FrameEnroll {
 
-	public void createFrame() {
+	public void createFrame(ArrayList<Enroll> enrollList) {
 
 		Frame f = new Frame("동물등록 페이지");
 		f.setBounds(0, 100, 400, 600);
@@ -64,7 +64,7 @@ public class FrameEnroll {
 
 		Panel pConR = new Panel();
 		pConR.setSize(170, 400);
-		pConR.setLocation(150, 90);
+		pConR.setLocation(160, 90);
 
 		TextField animalnameA = new TextField(14);
 		pConR.add(animalnameA);
@@ -121,6 +121,18 @@ public class FrameEnroll {
 		} else
 			genderless_check = false;
 
+		  //취소버튼 (뒤페이지 진료예약페이지로)
+        btn1.addActionListener(new ActionListener() {
+
+          @Override
+          public void actionPerformed(ActionEvent e) {
+             FrameReserve reserve = new FrameReserve();
+              reserve.createFrame(enrollList);
+              f.setVisible(false);
+          }
+           
+        });
+		
 		// 등록
 		btn2.addActionListener(new ActionListener() {
 
@@ -133,21 +145,36 @@ public class FrameEnroll {
 					animalgender_check = "암컷";
 				}
 
-				//ArrayList 추가
-				ArrayList<Enroll> enrollList = new ArrayList<Enroll>();
-		
+				//ArrayList가 없으면 생성
+				if(enrollList==null) {
+					ArrayList<Enroll> enrollList = new ArrayList<Enroll>();
+					
+					Enroll enroll = new Enroll(animalnameA.getText(),
+							animalgender_check, animalcateA.getText(),
+							Integer.parseInt(animalageA.getText()),
+							genderless_check, nameA.getText(), phoneA.getText() ,0," "," ");
 				
-				Enroll enroll = new Enroll(animalnameA.getText(),
-						animalgender_check, animalcateA.getText(),
-						Integer.parseInt(animalageA.getText()),
-						genderless_check, nameA.getText(), phoneA.getText(), 0);
-			
-				enrollList.add(enroll);
+					enrollList.add(enroll);
+					
+					FrameReserve2 reserve = new FrameReserve2();
+					
+					reserve.createFrame(enrollList);
+					f.setVisible(false);
+				}else {
+					Enroll enroll = new Enroll(animalnameA.getText(),
+							animalgender_check, animalcateA.getText(),
+							Integer.parseInt(animalageA.getText()),
+							genderless_check, nameA.getText(), phoneA.getText() ,0," "," ");
 				
-				FrameReserve2 reserve = new FrameReserve2();
+					enrollList.add(enroll);
+					
+					FrameReserve2 reserve = new FrameReserve2();
+					
+					reserve.createFrame(enrollList);
+					f.setVisible(false);
+				}
 				
-				reserve.createFrame(enrollList);
-				f.setVisible(false);
+				
 			}
 		});
 

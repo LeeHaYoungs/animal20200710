@@ -12,7 +12,11 @@ public class Enroll {
     String name;
     String phone;
     
-   int sirialNum;
+    String Date;
+    String Time;
+    
+
+int sirialNum;
 
     
     //»ý¼ºÀÚ
@@ -20,7 +24,7 @@ public class Enroll {
 	   
    }
     public Enroll(String animalname, String animalgender, String animalcate, int animalage, boolean genderless,
-            String name, String phone,int sirialNum) {
+            String name, String phone,int sirialNum, String Date, String Time) {
          this.animalname = animalname;
          this.animalgender = animalgender;
          this.animalcate = animalcate;
@@ -28,8 +32,26 @@ public class Enroll {
          this.genderless = genderless;
          this.name = name;
          this.phone = phone;
+         
+         this.Date = Date;
+         this.Time = Time;
+         
          this.sirialNum=123456;
       }
+    
+    public String getDate() {
+ 		return Date;
+ 	}
+ 	public void setDate(String date) {
+ 		Date = date;
+ 	}
+ 	public String getTime() {
+ 		return Time;
+ 	}
+ 	public void setTime(String time) {
+ 		Time = time;
+ 	}
+    
    public String getAnimalname() {
       return animalname;
    }

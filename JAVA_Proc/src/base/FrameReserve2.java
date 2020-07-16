@@ -28,7 +28,7 @@ import calendar.DiaryModel;
 
 //FrameEnroll에서 등록한 정보를 받아온 예약 페이지
 public class FrameReserve2{
-   public void createFrame(ArrayList<Enroll> enroll) {
+   public void createFrame(ArrayList<Enroll> enrollList) {
       Frame f =new Frame("진료 예약");
       f.setBounds(0,100,400,600);
       f.setBackground(Color.lightGray);
@@ -38,10 +38,10 @@ public class FrameReserve2{
       System.out.println(input);
       
       //가장 최근에 등록한 enroll값의 인덱스
-      int index=enroll.size()-1;
+      int index=enrollList.size()-1;
       
       Enroll latelyEnroll = new Enroll();
-      latelyEnroll=enroll.get(index);
+      latelyEnroll=enrollList.get(index);
       
       //폰트
       Font fontTitle=new Font(Font.SANS_SERIF,Font.BOLD,24);
@@ -88,7 +88,7 @@ public class FrameReserve2{
 
       Panel pConR = new Panel();
       pConR.setSize(190, 400);
-      pConR.setLocation(150, 60);
+      pConR.setLocation(160, 60);
       CheckboxGroup rGroup1= new CheckboxGroup(); 
       Checkbox dog=new Checkbox("개",rGroup1,true);
       //'개'만 등록할 수 있고, 등록 이후의 예약 페이지 이므로 true
@@ -174,7 +174,7 @@ public class FrameReserve2{
             if(input==1) {
                FrameEnroll enroll = new FrameEnroll();
                f.setVisible(false);
-               enroll.createFrame();
+               enroll.createFrame(enrollList);
             }else {
                sirialNumA.setEnabled(true);
 
@@ -198,7 +198,7 @@ public class FrameReserve2{
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
             f.setVisible(false);
-            reserve.createFrame(null);
+            reserve.createFrame(enrollList);
          }
 
       });
@@ -209,14 +209,16 @@ public class FrameReserve2{
         @Override
         public void actionPerformed(ActionEvent e) {
            
-           //동물명, 보호자명, 보호자 연락처 framediary로 보내기
-           ArrayList<String> list = new ArrayList<String>();
-           list.add(animalnameA.getText());
-           list.add(nameA.getText());
-           list.add(phoneA.getText());
+           //동물명, 보호자명, 보호자 연락처 framediary로 보내기         
+           Enroll enroll3=new Enroll();
+           enroll3.setAnimalname(animalnameA.getText());
+           enroll3.setName(nameA.getText());
+           enroll3.setPhone(phoneA.getText());
+           
+           enrollList.add(enroll3);
            
            f.setVisible(false);
-           new FrameDiary(new DiaryModel(),list);
+           new FrameDiary(new DiaryModel(),enrollList);
            
 //           Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //           

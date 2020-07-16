@@ -17,15 +17,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
-import ReseveVO.MyReserve;
 import calendar.DiaryModel;
 
 public class FrameReserve{
-   public void createFrame() {
+   public void createFrame(ArrayList<Enroll> enrollList) {
       Frame f =new Frame("진료 예약");
        f.setBounds(0,100,400,600);
        f.setBackground(Color.lightGray);
@@ -76,7 +76,7 @@ public class FrameReserve{
        
        Panel pConR = new Panel();
        pConR.setSize(170, 400);
-       pConR.setLocation(150, 60);
+       pConR.setLocation(160, 60);
        CheckboxGroup rGroup1= new CheckboxGroup(); 
        Checkbox dog=new Checkbox("개",rGroup1,false);
        Checkbox cat=new Checkbox("고양이",rGroup1,false);
@@ -121,7 +121,13 @@ public class FrameReserve{
        f.setVisible(true);
        
       
-       
+   	// 중성화 유,무 체크
+		boolean genderless_check;
+		if (genderX.getState() == true) {
+			genderless_check = true;
+		} else
+			genderless_check = false;
+
           //개를 누르면 메세지 팝업창이 뜨고 그 후에 등록창으로 이동
           dog.addMouseListener(new MouseAdapter() {
             @Override
@@ -132,7 +138,7 @@ public class FrameReserve{
                if(input==1) {
                   FrameEnroll enroll = new FrameEnroll();
                   f.setVisible(false);
-                  enroll.createFrame();
+                  enroll.createFrame(enrollList);
                }else {
                   sirialNumA.setEnabled(true);
 
@@ -168,10 +174,42 @@ public class FrameReserve{
          @Override
          public void actionPerformed(ActionEvent e) {
         	// new FrameCalendar();
+        	 String animalgender_check = null;
+				if (M.getState()) {// 수컷이 true면
+					animalgender_check = "수컷";
+				} else if (FM.getState()) {
+					animalgender_check = "암컷";
+				}
+				
+				if(enrollList==null) {
+					ArrayList<Enroll> enrollList = new ArrayList<Enroll>();
+					
+					Enroll enroll = new Enroll(animalnameA.getText(),
+							animalgender_check, animalcate.getText(),
+							Integer.parseInt(animalageA.getText()),
+							genderless_check, nameA.getText(), phoneA.getText() ,0," "," ");
+				
+				enrollList.add(enroll);
+	        	 
+	        	 
+	        	 //*** FremaReserve는 ArrayList보내는거 아직 미구현
+	            new FrameDiary(new DiaryModel(),enrollList);
+	            f.setVisible(false);
+				}else {
+					Enroll enroll = new Enroll(animalnameA.getText(),
+							animalgender_check, animalcate.getText(),
+							Integer.parseInt(animalageA.getText()),
+							genderless_check, nameA.getText(), phoneA.getText() ,0," "," ");
+				
+				enrollList.add(enroll);
+	        	 
+	        	 
+	        	 //*** FremaReserve는 ArrayList보내는거 아직 미구현
+	            new FrameDiary(new DiaryModel(),enrollList);
+	            f.setVisible(false);
+				}
+				
         	 
-        	 //*** FremaReserve는 ArrayList보내는거 아직 미구현
-//            new FrameDiary(new DiaryModel());
-            f.setVisible(false);
             
 //            Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //            

@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -15,14 +14,15 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
-import javax.swing.SwingConstants;
 
-import ReseveVO.MyReserve;
+import EnrollVO.Enroll;
 
 public class Appoint2 {
 
-	public void createFrame(MyReserve myreserve,ArrayList<MyReserve> myreserveList) {
+	public void createFrame(ArrayList<Enroll> enrollList, int existindex) {
 		// TODO Auto-generated method stub
+		int index=enrollList.size()-1;
+		
 		Frame f = new Frame("진료예약 확인2");
 		f.setBounds(0, 100, 400, 600);
 		f.setBackground(Color.lightGray);
@@ -65,13 +65,13 @@ public class Appoint2 {
 		pConL.setSize(230, 200);
 		pConL.setLocation(50, 90);
 		
-		Label animalname = new Label("동물명 : "+ myreserve.getAnimalName(), Label.RIGHT);
+		Label animalname = new Label("동물명 : "+ enrollList.get(existindex).getAnimalname(), Label.RIGHT);
 		pConL.add(animalname);
-		Label name = new Label("보호자명 : "+ myreserve.getName(), Label.RIGHT);
+		Label name = new Label("보호자명 : "+ enrollList.get(existindex).getName(), Label.RIGHT);
 		pConL.add(name);
-		Label date = new Label("날짜 : "+ myreserve.getDate(), Label.LEFT);
+		Label date = new Label("날짜 : "+ enrollList.get(existindex).getDate(), Label.LEFT);
 		pConL.add(date);
-		Label time = new Label("시간 : "+ myreserve.getTime(), Label.LEFT);
+		Label time = new Label("시간 : "+ enrollList.get(existindex).getTime(), Label.LEFT);
 		pConL.add(time);
 		
 		pCon.add(pConL);
@@ -118,7 +118,7 @@ public class Appoint2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				FrameMain reserve = new FrameMain();
-				reserve.createFrame(myreserveList);
+				reserve.createFrame(enrollList);
 				f.setVisible(false);
 			}
 

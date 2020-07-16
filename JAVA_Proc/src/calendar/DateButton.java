@@ -10,25 +10,25 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import ReseveVO.MyReserve;
+import EnrollVO.Enroll;
 import base.FrameTime;
 
 public class DateButton extends JButton implements ActionListener
 {
 	
-	ArrayList<String> myreserveList = new ArrayList<String>();
-
+	ArrayList<Enroll> enrollList = new ArrayList<Enroll>();
+	int index ;
 	
 	private DiaryModel calendar; // address of the Diary model
-	public DateButton(DiaryModel my_calendar, ArrayList<String> list) 
+	public DateButton(DiaryModel my_calendar, ArrayList<Enroll> enrollList3) 
 	{ 
 		super(""); // set label to nothing, but this will be repainted by the view
 		calendar = my_calendar;
 		setBackground(Color.white);		//배경색지정
 		
 		//동물명, 보호자명, 보호자 연락처 추가
-		myreserveList=list;
-		
+		enrollList=enrollList3;
+		index=enrollList.size()-1;
 		
 		addActionListener(this);
 	}
@@ -54,10 +54,12 @@ public class DateButton extends JButton implements ActionListener
 					
 					  if(input==0) { 
 						//동물명, 보호자명, 보호자 연락처 + 날짜
-						  myreserveList.add(selectDate);
+						//  enrollList.add(selectDate);
+						  enrollList.get(index).setDate(selectDate);
+						  
 						  
 					  FrameTime reserve = new FrameTime();
-					  reserve.createFrame(myreserveList); 
+					  reserve.createFrame(enrollList); 
 					  setVisible(false); 
 					  
 					  }

@@ -45,7 +45,7 @@ public class FrameDiary extends JFrame implements UpdateableView
    
    /** Constructor DiaryFrame builds the view
    * @param cells - the model, a diary */
-   public FrameDiary(DiaryModel cells,ArrayList<String> list)//동물명, 보호자명, 보호자 연락처
+   public FrameDiary(DiaryModel cells,ArrayList<Enroll> enrollList)//동물명, 보호자명, 보호자 연락처
       {  
       calendar = cells;
 
@@ -120,7 +120,7 @@ public class FrameDiary extends JFrame implements UpdateableView
       button = new DateButton[DiaryModel.NUM_CELL];
       for( int i = 0; i < button.length; i++ )
       {
-         button[i] = new DateButton(calendar,list);//파라미터 두개 받기 //동물명, 보호자명, 보호자 연락처
+         button[i] = new DateButton(calendar,enrollList);//파라미터 두개 받기 //동물명, 보호자명, 보호자 연락처
          datePanel.add(button[i]);
       }
 
@@ -169,7 +169,7 @@ public class FrameDiary extends JFrame implements UpdateableView
         public void actionPerformed(ActionEvent e) {
            FrameReserve reserve = new FrameReserve();
             setVisible(false);
-            reserve.createFrame();
+            reserve.createFrame(enrollList);
         }
          
       });

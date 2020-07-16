@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 
-import ReseveVO.MyReserve;
+import EnrollVO.Enroll;
 
 public class FrameReserveConfirm {
-	public void createFrame(ArrayList<MyReserve> myreserve) {
-		int index=myreserve.size()-1;
+	public void createFrame(ArrayList<Enroll> enrollList) {
+		int index=enrollList.size()-1;
 		
 		Frame f = new Frame("진료 예약 완료");
 		f.setBounds(0, 100, 400, 600);
@@ -67,13 +67,13 @@ public class FrameReserveConfirm {
 		pConR.setSize(500, 105);
 		pConR.setLocation(180,63);
 	
-		Label reserveDateA = new Label(myreserve.get(index).getDate()+","+myreserve.get(index).getTime(), Label.LEFT);
+		Label reserveDateA = new Label(enrollList.get(index).getDate()+","+enrollList.get(index).getTime(), Label.LEFT);
 		pConR.add(reserveDateA);
-		Label animalnameA = new Label(myreserve.get(index).getAnimalName(), Label.LEFT);
+		Label animalnameA = new Label(enrollList.get(index).getAnimalname(), Label.LEFT);
 		pConR.add(animalnameA);
-		Label nameA = new Label(myreserve.get(index).getName(), Label.LEFT);
+		Label nameA = new Label(enrollList.get(index).getName(), Label.LEFT);
 		pConR.add(nameA);
-		Label phoneA = new Label(myreserve.get(index).getPhone(), Label.LEFT);	
+		Label phoneA = new Label(enrollList.get(index).getPhone(), Label.LEFT);	
 		pConR.add(phoneA);
 //		
 		
@@ -110,7 +110,7 @@ public class FrameReserveConfirm {
 			public void actionPerformed(ActionEvent e) {
 				FrameMain main = new FrameMain();
 				
-				main.createFrame(myreserve);
+				main.createFrame(enrollList);
 				f.setVisible(false);
 			}
 		});

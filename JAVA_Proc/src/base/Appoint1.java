@@ -18,11 +18,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import EnrollVO.Enroll;
 import ReseveVO.MyReserve;
 
 public class Appoint1 {
 
-   public void createFrame(ArrayList<MyReserve> myreserve) {
+   public void createFrame(ArrayList<Enroll> enrollList) {
 
 		Frame f=new Frame("진료예약 확인");
   		f.setBounds(0,100,400,600);
@@ -96,7 +97,7 @@ public class Appoint1 {
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
             f.setVisible(false);
-            reserve.createFrame(myreserve);
+            reserve.createFrame(enrollList);
          }
           
        });
@@ -107,16 +108,21 @@ public class Appoint1 {
          @Override
          public void actionPerformed(ActionEvent e) {
             //일치하는 번호찾기
-        	  String insertinfo = phoneB.getText();
-        	 int index;
-        	 for(int i=0;i<myreserve.size();i++) {
-        		if(insertinfo.equals(myreserve.get(i).getPhone())){
-        			index=i;
-        			MyReserve reservecheck = myreserve.get(index);
+        	 String insertinfo = phoneB.getText();
+        
+        	 int existindex=0;
+        	 
+        	 for(int i=0;i<enrollList.size();i++) {
+        		if(insertinfo.equals(enrollList.get(i).getPhone())){
         			
-        			 Appoint2 reserve = new Appoint2();
-        	            
-        			reserve.createFrame(reservecheck,myreserve);//입력한거 , 기존정보
+        			existindex=i;
+        			
+        		}
+        	 }
+        		if(existindex!=0) {
+        			Appoint2 reserve = new Appoint2();
+       	        
+        			reserve.createFrame(enrollList,existindex);//입력한거 , 기존정보
                     f.setVisible(false);
         		}else {//
         			int input = JOptionPane.showConfirmDialog(null, "일치하는 예약정보가 없습니다.","예약확인",
@@ -124,7 +130,8 @@ public class Appoint1 {
 	
 					System.out.println(input);
         		}
-        	 }
+        		
+        	
         	 
          }
           

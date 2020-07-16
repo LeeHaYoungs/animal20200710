@@ -17,14 +17,13 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-
+import EnrollVO.Enroll;
 import ReseveVO.MyReserve;
-
 import calendar.DiaryModel;
 
 public class FrameTime {
-		
-	public void createFrame(ArrayList<String> myreserveList) {
+	ArrayList<MyReserve> myreserveComple = new ArrayList<MyReserve>();
+	public void createFrame(ArrayList<Enroll> enrollList) {
 		Frame f = new Frame("진료 시간 선택 페이지");
 		f.setBounds(0, 100, 400, 600);
 		f.setBackground(Color.lightGray);
@@ -110,8 +109,9 @@ public class FrameTime {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				myreserveList.remove(myreserveList.size()-1);//최근에 추가된 값인 '날짜' 삭제
-				new FrameDiary(new DiaryModel(),myreserveList); 
+				//enrollList.remove(enrollList.size()-1);//최근에 추가된 값인 '날짜' 삭제
+			
+				new FrameDiary(new DiaryModel(),enrollList); 
 				f.setVisible(false);
 				//confirm.createFrame(null);
 			}
@@ -122,16 +122,17 @@ public class FrameTime {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				myreserveList.add(time.getItem(time.getSelectedIndex()));
+		
+				enrollList.get(enrollList.size()-1).setTime(time.getItem(time.getSelectedIndex()));
 				
-				int size=myreserveList.size();
-				MyReserve ms = new MyReserve(myreserveList.get(size-5),myreserveList.get(size-4),myreserveList.get(size-3),myreserveList.get(size-2),myreserveList.get(size-1));
+//				int size=enrollList.size();
+//				MyReserve ms = new MyReserve(myreserveList.get(size-5),myreserveList.get(size-4),myreserveList.get(size-3),myreserveList.get(size-2),myreserveList.get(size-1));
 				
-				ArrayList<MyReserve> myreserveComple = new ArrayList<MyReserve>();
-				myreserveComple.add(ms);
+//				
+//				myreserveComple.add(ms);
 				
 				FrameReserveConfirm confirm = new FrameReserveConfirm();
-				confirm.createFrame(myreserveComple);
+				confirm.createFrame(enrollList);
 				f.setVisible(false);
 			}
 		});

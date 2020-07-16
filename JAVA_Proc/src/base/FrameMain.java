@@ -3,8 +3,6 @@ package base;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
@@ -16,11 +14,11 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import ReseveVO.MyReserve;
+import EnrollVO.Enroll;
 
 public class FrameMain {
 
-   public void createFrame(ArrayList<MyReserve> myreserve) {
+   public void createFrame(ArrayList<Enroll> enrollList) {
       Frame f = new Frame();
       f.setBounds(0, 100, 400, 600);
       f.setBackground(Color.lightGray);
@@ -71,7 +69,7 @@ public class FrameMain {
          public void actionPerformed(ActionEvent e) {
             FrameReserve reserve = new FrameReserve();
             
-            reserve.createFrame();
+            reserve.createFrame(enrollList);
             f.setVisible(false);
          }
       });
@@ -83,7 +81,7 @@ public class FrameMain {
          public void actionPerformed(ActionEvent e) {
             Appoint1 reserve = new Appoint1();
             
-            reserve.createFrame(myreserve);
+            reserve.createFrame(enrollList);
             f.setVisible(false);
             
          }
