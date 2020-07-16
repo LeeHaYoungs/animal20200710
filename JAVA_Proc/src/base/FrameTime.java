@@ -17,7 +17,9 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+
 import ReseveVO.MyReserve;
+
 import calendar.DiaryModel;
 
 public class FrameTime {
@@ -44,7 +46,7 @@ public class FrameTime {
 
 		Panel pTitle = new Panel();
 		pTitle.setSize(400, 50);
-		Label title = new Label("시간 예약");
+		Label title = new Label("예약 시간 선택");
 		pTitle.setBackground(Color.pink);
 		pTitle.setFont(fontTitle);
 		pTitle.setLocation(0, 30);
@@ -77,15 +79,15 @@ public class FrameTime {
 
 		Choice time = new Choice();
 		time.add("예약 시간 선택");
-		time.add("am: 09~10");
-		time.add("am: 10~11");
-		time.add("am: 11~12");
-		time.add("pm: 00~01");
-		time.add("pm: 01~02");
-		time.add("pm: 02~03");
-		time.add("pm: 03~04");
-		time.add("pm: 04~05");
-		time.add("pm: 05~06");
+		time.add("am: 09:00~10:00");
+		time.add("am : 10:00~11:00");
+		time.add("am : 11:00~12:00");
+		time.add("pm : 12:00~01:00");
+		time.add("pm : 01:00~02:00");
+		time.add("pm : 02:00~03:00");
+		time.add("pm : 03:00~04:00");
+		time.add("pm : 04:00~05:00");
+		time.add("pm : 05:00~06:00");
 
 		time.setSize(100, 50);
 		time.setLocation(50, 100);
