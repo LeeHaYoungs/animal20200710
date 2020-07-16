@@ -65,9 +65,9 @@ public class Appoint1 {
           pConR.setSize(190, 400);
           pConR.setLocation(150, 90);
    
-          TextField nameA=new TextField(18);
+          TextField nameA=new TextField(14);
           pConR.add(nameA);
-          TextField phoneB=new TextField(18);
+          TextField phoneB=new TextField(14);
           pConR.add(phoneB);
           
           pCon.add(pConR);

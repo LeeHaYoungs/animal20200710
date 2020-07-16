@@ -19,7 +19,7 @@ import EnrollVO.Enroll;
 
 public class FrameReserveConfirm {
 	public void createFrame(ArrayList<Enroll> enrollList) {
-		int index=enrollList.size()-1;
+	int index=enrollList.size()-1;
 		
 		Frame f = new Frame("진료 예약 완료");
 		f.setBounds(0, 100, 400, 600);
@@ -44,10 +44,12 @@ public class FrameReserveConfirm {
 		f.add(pTitle);
 
 		Panel pConL = new Panel();
-		pConL.setSize(140, 400);
+		pConL.setSize(120, 400);
 		pConL.setLocation(30, 60);
-		Label reserveDate = new Label("날짜, 시간 : " , Label.RIGHT);
+		Label reserveDate = new Label("날짜 : " , Label.RIGHT);
 		pConL.add(reserveDate);
+		Label reserveTime = new Label("시간 : " , Label.RIGHT);
+		pConL.add(reserveTime);
 		Label animalname = new Label("동물명 : ", Label.RIGHT);
 		pConL.add(animalname);
 		Label name = new Label("보호자명 : ", Label.RIGHT);
@@ -64,30 +66,37 @@ public class FrameReserveConfirm {
 		BoxLayout Box = new BoxLayout(pConR, BoxLayout.Y_AXIS);
 	
 		pConR.setLayout(Box);
-		pConR.setSize(500, 105);
-		pConR.setLocation(180,63);
-	
-		Label reserveDateA = new Label(enrollList.get(index).getDate()+","+enrollList.get(index).getTime(), Label.LEFT);
+		pConR.setSize(150, 158);
+		pConR.setLocation(180,64);
+//	
+		Label reserveDateA = new Label(enrollList.get(index).getDate(), Label.LEFT);
 		pConR.add(reserveDateA);
+		Label reserveTimeA = new Label(enrollList.get(index).getTime(), Label.LEFT);
+		pConR.add(reserveTimeA);
 		Label animalnameA = new Label(enrollList.get(index).getAnimalname(), Label.LEFT);
 		pConR.add(animalnameA);
 		Label nameA = new Label(enrollList.get(index).getName(), Label.LEFT);
 		pConR.add(nameA);
 		Label phoneA = new Label(enrollList.get(index).getPhone(), Label.LEFT);	
 		pConR.add(phoneA);
-//		
+//	
 		
 /*test용*/
-//		Label reserveDateA = new Label("2020년 7월22일,am : 10:00~11:00", Label.LEFT);
+//		Label reserveDateA = new Label("2020년 7월22일", Label.LEFT);
 //		pConR.add(reserveDateA);
+//		Label reserveTimeA = new Label("am : 10:00~11:00", Label.LEFT);
+//		pConR.add(reserveTimeA);
 //		Label animalnameA = new Label("name", Label.LEFT);
 //		pConR.add(animalnameA);
 //		Label nameA = new Label("owner", Label.LEFT);
 //		pConR.add(nameA);
 //		Label phoneA = new Label("010-1230123", Label.LEFT);	
 //		pConR.add(phoneA);		
-		
 
+
+		
+		pConL.setFont(fontCon);
+		pConR.setFont(fontCon);
 		
 		
 		pCon.add(pConR);
@@ -125,6 +134,6 @@ public class FrameReserveConfirm {
 	}
 	/*test용*/
 //	public static void main(String[] args) {
-//		new FrameReserveConfirm().createFrame(null);;
+//		new FrameReserveConfirm().createFrame(null);
 //	}
 }

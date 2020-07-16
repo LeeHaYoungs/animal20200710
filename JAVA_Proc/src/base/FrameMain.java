@@ -20,7 +20,7 @@ public class FrameMain {
 
    public void createFrame(ArrayList<Enroll> enrollList) {
       Frame f = new Frame();
-      f.setBounds(0, 100, 400, 600);
+      f.setBounds(500, 100, 400, 600);
       f.setBackground(Color.lightGray);
        f.setLayout(new BorderLayout());
        

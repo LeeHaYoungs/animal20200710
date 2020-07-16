@@ -93,10 +93,10 @@ public class FrameReserve2{
       Checkbox dog=new Checkbox("개",rGroup1,true);
       //'개'만 등록할 수 있고, 등록 이후의 예약 페이지 이므로 true
       Checkbox cat=new Checkbox("고양이",rGroup1,false);
-      TextField sirialNumA=new TextField(16);
+      TextField sirialNumA=new TextField(18);
       sirialNumA.setEnabled(false);
 
-      TextField animalnameA=new TextField(16);
+      TextField animalnameA=new TextField(18);
       pConR.add(dog); 
       pConR.add(cat);
       pConR.add(sirialNumA);
@@ -118,8 +118,8 @@ public class FrameReserve2{
          pConR.add(FM);
       }
 
-      TextField animalcateA=new TextField(16);
-      TextField animalageA=new TextField(16);
+      TextField animalcateA=new TextField(18);
+      TextField animalageA=new TextField(18);
 
       animalcateA.setText(latelyEnroll.getAnimalcate());
       animalageA.setText(String.valueOf(latelyEnroll.getAnimalage()));
@@ -141,8 +141,8 @@ public class FrameReserve2{
          pConR.add(genderO);
       }
 
-      TextField nameA=new TextField(16);
-      TextField phoneA=new TextField(16);
+      TextField nameA=new TextField(18);
+      TextField phoneA=new TextField(18);
       pConR.add(nameA);
       pConR.add(phoneA);
       pCon.add(pConR);

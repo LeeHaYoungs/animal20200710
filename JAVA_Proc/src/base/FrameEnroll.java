@@ -66,13 +66,13 @@ public class FrameEnroll {
 		pConR.setSize(170, 400);
 		pConR.setLocation(160, 90);
 
-		TextField animalnameA = new TextField(18);
+		TextField animalnameA = new TextField(16);
 		pConR.add(animalnameA);
 		CheckboxGroup rGroup1 = new CheckboxGroup();
 		Checkbox M = new Checkbox("¼öÄÆ", rGroup1, true);
 		Checkbox FM = new Checkbox("¾ÏÄÆ", rGroup1, false);
-		TextField animalcateA = new TextField(18);
-		TextField animalageA = new TextField(18);
+		TextField animalcateA = new TextField(16);
+		TextField animalageA = new TextField(16);
 		pConR.add(M);
 		pConR.add(FM);
 		pConR.add(animalcateA);
@@ -82,8 +82,8 @@ public class FrameEnroll {
 		Checkbox genderO = new Checkbox("¹«", rGroup2, false);
 		pConR.add(genderX);
 		pConR.add(genderO);
-		TextField nameA = new TextField(18);
-		TextField phoneA = new TextField(18);
+		TextField nameA = new TextField(16);
+		TextField phoneA = new TextField(16);
 		pConR.add(nameA);
 		pConR.add(phoneA);
 
