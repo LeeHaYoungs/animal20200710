@@ -14,6 +14,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
 
@@ -73,8 +74,6 @@ public class Appoint2 {
 		pConL.add(date);
 		Label time = new Label("시간 : "+ enrollList.get(existindex).getTime(), Label.LEFT);
 		pConL.add(time);
-		Label thanks = new Label("예약해주셔서 ㄱㅅㄳ", Label.LEFT);
-		pConL.add(time);
 		
 		pCon.add(pConL);
 		
@@ -112,11 +111,12 @@ public class Appoint2 {
 		pCon.add(btn1);
 
 		f.add(pCon);
-
+		
 		f.setVisible(true);
 
 		btn1.addActionListener(new ActionListener() {
-
+			int input=JOptionPane.showConfirmDialog(null,"예약해주셔서 감사합니다","감사인사", JOptionPane.YES_OPTION);
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				FrameMain reserve = new FrameMain();
