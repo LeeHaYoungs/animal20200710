@@ -53,7 +53,7 @@ public class FrameDiary extends JFrame implements UpdateableView
       Dimension wndSize = theKit.getScreenSize();   //화켠 크기 구하기
 
       //
-      setBounds(0, 100,      //위치
+      setBounds(500, 100,      //위치
                   400, 600);   //크기
 
        try   

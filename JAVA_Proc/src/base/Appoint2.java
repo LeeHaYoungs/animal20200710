@@ -25,7 +25,7 @@ public class Appoint2 {
 		int index=enrollList.size()-1;
 		
 		Frame f = new Frame("진료예약 확인2");
-		f.setBounds(0, 100, 400, 600);
+		f.setBounds(500, 100, 400, 600);
 		f.setBackground(Color.lightGray);
 		f.setLayout(new BorderLayout());
 

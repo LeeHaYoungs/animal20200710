@@ -22,7 +22,7 @@ public class FrameReserveConfirm {
 	int index=enrollList.size()-1;
 		
 		Frame f = new Frame("진료 예약 완료");
-		f.setBounds(0, 100, 400, 600);
+		f.setBounds(500, 100, 400, 600);
 		f.setBackground(Color.lightGray);
 		f.setLayout(new BorderLayout());
 

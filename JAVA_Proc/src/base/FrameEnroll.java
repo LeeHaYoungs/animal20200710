@@ -22,7 +22,7 @@ public class FrameEnroll {
 	public void createFrame(ArrayList<Enroll> enrollList) {
 
 		Frame f = new Frame("동물등록 페이지");
-		f.setBounds(0, 100, 400, 600);
+		f.setBounds(500, 100, 400, 600);
 		f.setBackground(Color.lightGray);
 		f.setLayout(new BorderLayout());
 
