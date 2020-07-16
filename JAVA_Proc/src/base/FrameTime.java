@@ -79,7 +79,7 @@ public class FrameTime {
 
 		Choice time = new Choice();
 		time.add("예약 시간 선택");
-		time.add("am: 09:00~10:00");
+		time.add("am : 09:00~10:00");
 		time.add("am : 10:00~11:00");
 		time.add("am : 11:00~12:00");
 		time.add("pm : 12:00~01:00");

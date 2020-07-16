@@ -2,25 +2,23 @@ package base;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Checkbox;
-import java.awt.CheckboxGroup;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
+
 import ReseveVO.MyReserve;
 
 public class FrameReserveConfirm {
 	public void createFrame(ArrayList<MyReserve> myreserve) {
-		 
 		int index=myreserve.size()-1;
 		
 		Frame f = new Frame("진료 예약 완료");
@@ -46,8 +44,8 @@ public class FrameReserveConfirm {
 		f.add(pTitle);
 
 		Panel pConL = new Panel();
-		pConL.setSize(120, 400);
-		pConL.setLocation(50, 60);
+		pConL.setSize(140, 400);
+		pConL.setLocation(30, 60);
 		Label reserveDate = new Label("날짜, 시간 : " , Label.RIGHT);
 		pConL.add(reserveDate);
 		Label animalname = new Label("동물명 : ", Label.RIGHT);
@@ -59,26 +57,37 @@ public class FrameReserveConfirm {
 
 		pCon.add(pConL);
 		
-		Panel pConR = new Panel();
-		pConR.setSize(170, 400);
-		pConR.setLocation(150, 90);
 
-		Label reserveDateA = new Label(myreserve.get(index).getDate()+","+myreserve.get(index).getTime());
-		Label animalnameA = new Label(myreserve.get(index).getAnimalName());
-		Label nameA = new Label(myreserve.get(index).getName());
-		Label phoneA = new Label(myreserve.get(index).getPhone());
+		Panel pConR = new Panel();
+
+		//boxLayout
+		BoxLayout Box = new BoxLayout(pConR, BoxLayout.Y_AXIS);
+	
+		pConR.setLayout(Box);
+		pConR.setSize(500, 105);
+		pConR.setLocation(180,63);
+	
+		Label reserveDateA = new Label(myreserve.get(index).getDate()+","+myreserve.get(index).getTime(), Label.LEFT);
 		pConR.add(reserveDateA);
+		Label animalnameA = new Label(myreserve.get(index).getAnimalName(), Label.LEFT);
 		pConR.add(animalnameA);
+		Label nameA = new Label(myreserve.get(index).getName(), Label.LEFT);
 		pConR.add(nameA);
+		Label phoneA = new Label(myreserve.get(index).getPhone(), Label.LEFT);	
 		pConR.add(phoneA);
-//		CheckboxGroup rGroup1 = new CheckboxGroup();
-//		Checkbox M = new Checkbox("수컷", rGroup1, true);
-//		Checkbox FM = new Checkbox("암컷", rGroup1, false);
-//		TextField animalcateA = new TextField(14);
-//		TextField animalageA = new TextField(14);
-//		CheckboxGroup rGroup2 = new CheckboxGroup();
-//		Checkbox genderX = new Checkbox("유", rGroup2, true);
-//		Checkbox genderO = new Checkbox("무", rGroup2, false);
+//		
+		
+/*test용*/
+//		Label reserveDateA = new Label("2020년 7월22일,am : 10:00~11:00", Label.LEFT);
+//		pConR.add(reserveDateA);
+//		Label animalnameA = new Label("name", Label.LEFT);
+//		pConR.add(animalnameA);
+//		Label nameA = new Label("owner", Label.LEFT);
+//		pConR.add(nameA);
+//		Label phoneA = new Label("010-1230123", Label.LEFT);	
+//		pConR.add(phoneA);		
+		
+
 		
 		
 		pCon.add(pConR);
@@ -99,9 +108,9 @@ public class FrameReserveConfirm {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				FrameMain reserve = new FrameMain();
+				FrameMain main = new FrameMain();
 				
-				reserve.createFrame();
+				main.createFrame(myreserve);
 				f.setVisible(false);
 			}
 		});
@@ -114,5 +123,8 @@ public class FrameReserveConfirm {
 			}
 		});
 	}
-
+	/*test용*/
+//	public static void main(String[] args) {
+//		new FrameReserveConfirm().createFrame(null);;
+//	}
 }

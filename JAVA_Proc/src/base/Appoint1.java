@@ -3,8 +3,6 @@ package base;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
@@ -14,15 +12,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
+import ReseveVO.MyReserve;
 
 public class Appoint1 {
 
-   public void createFrame() {
+   public void createFrame(ArrayList<MyReserve> myreserve) {
 
 		Frame f=new Frame("진료예약 확인");
   		f.setBounds(0,100,400,600);
@@ -64,10 +64,10 @@ public class Appoint1 {
           pConR.setSize(190, 400);
           pConR.setLocation(150, 90);
    
-          TextField animalnameA=new TextField(18);
-          pConR.add(animalnameA);
-          TextField animalnameB=new TextField(18);
-          pConR.add(animalnameB);
+          TextField nameA=new TextField(18);
+          pConR.add(nameA);
+          TextField phoneB=new TextField(18);
+          pConR.add(phoneB);
           
           pCon.add(pConR);
          
@@ -86,26 +86,46 @@ public class Appoint1 {
      
       f.setVisible(true);
       
+    
       
+      
+      //메인
       btn1.addActionListener(new ActionListener() {
 
          @Override
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
             f.setVisible(false);
-            reserve.createFrame();
+            reserve.createFrame(myreserve);
          }
           
        });
       
+      //확인
       btn2.addActionListener(new ActionListener() {
 
          @Override
          public void actionPerformed(ActionEvent e) {
-            Appoint2 reserve = new Appoint2();
-            
-            reserve.createFrame();
-            f.setVisible(false);
+            //일치하는 번호찾기
+        	  String insertinfo = phoneB.getText();
+        	 int index;
+        	 for(int i=0;i<myreserve.size();i++) {
+        		if(insertinfo.equals(myreserve.get(i).getPhone())){
+        			index=i;
+        			MyReserve reservecheck = myreserve.get(index);
+        			
+        			 Appoint2 reserve = new Appoint2();
+        	            
+        			reserve.createFrame(reservecheck,myreserve);//입력한거 , 기존정보
+                    f.setVisible(false);
+        		}else {//
+        			int input = JOptionPane.showConfirmDialog(null, "일치하는 예약정보가 없습니다.","예약확인",
+							JOptionPane.YES_NO_OPTION);
+	
+					System.out.println(input);
+        		}
+        	 }
+        	 
          }
           
        });

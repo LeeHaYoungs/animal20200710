@@ -8,7 +8,7 @@ public class AnimalMain {
 
 	public static void main(String[] args) {
 		FrameMain main = new FrameMain();
-		main.createFrame();
+		main.createFrame(null);
 	}
 
 }

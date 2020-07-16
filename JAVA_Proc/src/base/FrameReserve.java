@@ -156,7 +156,7 @@ public class FrameReserve{
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
             
-            reserve.createFrame();
+            reserve.createFrame(null);
             f.setVisible(false);
          }
           

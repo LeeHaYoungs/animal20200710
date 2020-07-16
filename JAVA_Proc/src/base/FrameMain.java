@@ -11,13 +11,16 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import ReseveVO.MyReserve;
+
 public class FrameMain {
 
-   public void createFrame() {
+   public void createFrame(ArrayList<MyReserve> myreserve) {
       Frame f = new Frame();
       f.setBounds(0, 100, 400, 600);
       f.setBackground(Color.lightGray);
@@ -80,7 +83,7 @@ public class FrameMain {
          public void actionPerformed(ActionEvent e) {
             Appoint1 reserve = new Appoint1();
             
-            reserve.createFrame();
+            reserve.createFrame(myreserve);
             f.setVisible(false);
             
          }
