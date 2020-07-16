@@ -184,7 +184,7 @@ public class FrameEnroll {
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
 	           FrameReserve reserve = new FrameReserve();
-	            reserve.createFrame();
+	            reserve.createFrame(enrollList);
 	            f.setVisible(false);
 	        }
 	         

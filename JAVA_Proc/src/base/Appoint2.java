@@ -65,13 +65,15 @@ public class Appoint2 {
 		pConL.setSize(230, 200);
 		pConL.setLocation(50, 90);
 		
-		Label animalname = new Label("동물명 : "+ enrollList.get(existindex).getAnimalname(), Label.RIGHT);
+		Label animalname = new Label("동물명 : "+ enrollList.get(existindex).getAnimalname(), Label.LEFT);
 		pConL.add(animalname);
-		Label name = new Label("보호자명 : "+ enrollList.get(existindex).getName(), Label.RIGHT);
+		Label name = new Label("보호자명 : "+ enrollList.get(existindex).getName(), Label.LEFT);
 		pConL.add(name);
 		Label date = new Label("날짜 : "+ enrollList.get(existindex).getDate(), Label.LEFT);
 		pConL.add(date);
 		Label time = new Label("시간 : "+ enrollList.get(existindex).getTime(), Label.LEFT);
+		pConL.add(time);
+		Label thanks = new Label("예약해주셔서 ㄱㅅㄳ", Label.LEFT);
 		pConL.add(time);
 		
 		pCon.add(pConL);

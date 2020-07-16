@@ -22,22 +22,20 @@ import ReseveVO.MyReserve;
 import calendar.DiaryModel;
 
 public class FrameTime {
+	
 	ArrayList<MyReserve> myreserveComple = new ArrayList<MyReserve>();
+	
 	public void createFrame(ArrayList<Enroll> enrollList) {
+		
 		Frame f = new Frame("진료 시간 선택 페이지");
 		f.setBounds(0, 100, 400, 600);
 		f.setBackground(Color.lightGray);
 		f.setLayout(new BorderLayout());
 
-		// 이미지
-		ImageIcon img = new ImageIcon("졸림.png");
-		JLabel j1 = new JLabel(img);// JLabel에만 ImageIcon을 추가할 수 있다.
-		j1.setBounds(80, 10, 343, 300);// 원본이미지의 width, height를 알아야함
-		j1.setLocation(0, 120);;
-		f.add(j1);
-
 		Font fontTitle = new Font(Font.SANS_SERIF, Font.BOLD, 24);
 		Font fontCon = new Font("맑은 고딕", Font.PLAIN, 16);
+
+		
 
 		Panel pCon = new Panel();
 		pCon.setLayout(null);
@@ -58,11 +56,6 @@ public class FrameTime {
 		// Label animalname=new Label("진료 날짜 : ",Label.RIGHT);
 		// pConL.add(animalname);
 		// pCon.add(pConL);
-
-		Panel pConR = new Panel();
-		pConR.setSize(190, 50);
-		pConR.setLocation(150, 90);
-
 		// TextField animalnameA=new TextField(18);
 		// pConR.add(animalnameA);
 		// pCon.add(pConR);
@@ -88,55 +81,55 @@ public class FrameTime {
 		time.add("pm : 04:00~05:00");
 		time.add("pm : 05:00~06:00");
 
-		time.setSize(100, 50);
-		time.setLocation(50, 100);
-
-		
-
-		
-		Panel pConC = new Panel();
-		pConC.setSize(100, 200);
-		pConC.setLocation(0, 50);
-		pConC.add(time);
-		pCon.add(pConC);
+		time.setSize(350, 50);
+		time.setLocation(20, 100);
+		f.add(time);
 
 		f.add(pCon);
-
+		// 이미지
+				ImageIcon img = new ImageIcon("졸림.png");
+				JLabel j1 = new JLabel(img);// JLabel에만 ImageIcon을 추가할 수 있다.
+				j1.setBounds(20,150,343,300);// 원본이미지의 width, height를 알아야함
+				//j1.setLocation(0, 120);;
+				pCon.add(j1);
+				
 		f.setVisible(true);
-		
+
 		// ** 이전화면 이벤트 추가 **
 		btn1.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//enrollList.remove(enrollList.size()-1);//최근에 추가된 값인 '날짜' 삭제
-			
-				new FrameDiary(new DiaryModel(),enrollList); 
+				// enrollList.remove(enrollList.size()-1);//최근에 추가된 값인 '날짜' 삭제
+
+				new FrameDiary(new DiaryModel(), enrollList);
 				f.setVisible(false);
-				//confirm.createFrame(null);
+				// confirm.createFrame(null);
 			}
 		});
-		
+
 		// ** 진료예약 확인 이벤트 추가 **
 		btn2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-		
-				enrollList.get(enrollList.size()-1).setTime(time.getItem(time.getSelectedIndex()));
-				
-//				int size=enrollList.size();
-//				MyReserve ms = new MyReserve(myreserveList.get(size-5),myreserveList.get(size-4),myreserveList.get(size-3),myreserveList.get(size-2),myreserveList.get(size-1));
-				
-//				
-//				myreserveComple.add(ms);
-				
+
+				enrollList.get(enrollList.size() - 1)
+						.setTime(time.getItem(time.getSelectedIndex()));
+
+				// int size=enrollList.size();
+				// MyReserve ms = new
+				// MyReserve(myreserveList.get(size-5),myreserveList.get(size-4),myreserveList.get(size-3),myreserveList.get(size-2),myreserveList.get(size-1));
+
+				//
+				// myreserveComple.add(ms);
+
 				FrameReserveConfirm confirm = new FrameReserveConfirm();
 				confirm.createFrame(enrollList);
 				f.setVisible(false);
 			}
 		});
-		
+
 		f.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
