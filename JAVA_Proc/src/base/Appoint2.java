@@ -91,6 +91,7 @@ public class Appoint2 {
 		name.setFont(fontCon);
 		date.setFont(fontCon);
 		time.setFont(fontCon);
+		thanks.setFont(fontCon);
 		
 		pCon.add(pConL);
 		
