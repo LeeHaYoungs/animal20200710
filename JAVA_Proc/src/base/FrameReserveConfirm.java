@@ -12,18 +12,16 @@ import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
-import EnrollVO.Enroll;
 import ReseveVO.MyReserve;
 
 public class FrameReserveConfirm {
-	public void createFrame(Enroll enroll) {
+	public void createFrame(ArrayList<MyReserve> myreserve) {
+		 
+		int index=myreserve.size()-1;
 		
 		Frame f = new Frame("Áø·á ¿¹¾à ¿Ï·á");
 		f.setBounds(0, 100, 400, 600);
@@ -65,20 +63,23 @@ public class FrameReserveConfirm {
 		pConR.setSize(170, 400);
 		pConR.setLocation(150, 90);
 
-		TextField animalnameA = new TextField(14);
+		Label reserveDateA = new Label(myreserve.get(index).getDate()+","+myreserve.get(index).getTime());
+		Label animalnameA = new Label(myreserve.get(index).getAnimalName());
+		Label nameA = new Label(myreserve.get(index).getName());
+		Label phoneA = new Label(myreserve.get(index).getPhone());
+		pConR.add(reserveDateA);
 		pConR.add(animalnameA);
-		CheckboxGroup rGroup1 = new CheckboxGroup();
-		Checkbox M = new Checkbox("¼öÄÆ", rGroup1, true);
-		Checkbox FM = new Checkbox("¾ÏÄÆ", rGroup1, false);
-		TextField animalcateA = new TextField(14);
-		TextField animalageA = new TextField(14);
-		CheckboxGroup rGroup2 = new CheckboxGroup();
-		Checkbox genderX = new Checkbox("À¯", rGroup2, true);
-		Checkbox genderO = new Checkbox("¹«", rGroup2, false);
-		TextField nameA = new TextField(14);
-		TextField phoneA = new TextField(14);
 		pConR.add(nameA);
 		pConR.add(phoneA);
+//		CheckboxGroup rGroup1 = new CheckboxGroup();
+//		Checkbox M = new Checkbox("¼öÄÆ", rGroup1, true);
+//		Checkbox FM = new Checkbox("¾ÏÄÆ", rGroup1, false);
+//		TextField animalcateA = new TextField(14);
+//		TextField animalageA = new TextField(14);
+//		CheckboxGroup rGroup2 = new CheckboxGroup();
+//		Checkbox genderX = new Checkbox("À¯", rGroup2, true);
+//		Checkbox genderO = new Checkbox("¹«", rGroup2, false);
+		
 		
 		pCon.add(pConR);
 

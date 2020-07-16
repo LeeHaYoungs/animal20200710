@@ -8,7 +8,7 @@ public class MyReserve {
 	String date;
 	String time;
 	
-	MyReserve(){
+	public MyReserve(){
 		
 	}
 	

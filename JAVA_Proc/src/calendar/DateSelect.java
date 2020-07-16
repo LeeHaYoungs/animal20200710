@@ -38,7 +38,7 @@ public class DateSelect {
 		f.add(pTitle);
 		f.add(pCon);
 		
-		 new FrameDiary(new DiaryModel());
+		 new FrameDiary(new DiaryModel(),null);
 		
 		
 		

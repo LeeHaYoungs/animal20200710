@@ -4,24 +4,37 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import ReseveVO.MyReserve;
 import base.FrameTime;
 
 public class DateButton extends JButton implements ActionListener
 {
+	
+	ArrayList<String> myreserveList = new ArrayList<String>();
+
+	
 	private DiaryModel calendar; // address of the Diary model
-	public DateButton(DiaryModel my_calendar)
+	public DateButton(DiaryModel my_calendar, ArrayList<String> list) 
 	{ 
 		super(""); // set label to nothing, but this will be repainted by the view
 		calendar = my_calendar;
 		setBackground(Color.white);		//배경색지정
+		
+		//동물명, 보호자명, 보호자 연락처 추가
+		myreserveList=list;
+		
+		
 		addActionListener(this);
 	}
 
+
+	
 	public void actionPerformed(ActionEvent evt)
 	{ 
 		if ( !getText().equals("") )   // it's not the blank space, is it?
@@ -40,9 +53,11 @@ public class DateButton extends JButton implements ActionListener
 
 					
 					  if(input==0) { 
+						//동물명, 보호자명, 보호자 연락처 + 날짜
+						  myreserveList.add(selectDate);
 						  
 					  FrameTime reserve = new FrameTime();
-					  reserve.createFrame(); 
+					  reserve.createFrame(myreserveList); 
 					  setVisible(false); 
 					  
 					  }

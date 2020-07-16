@@ -18,17 +18,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import EnrollVO.Enroll;
-import ReseveVO.MyReserve;
 import calendar.DiaryModel;
 
 
 //FrameEnroll에서 등록한 정보를 받아온 예약 페이지
 public class FrameReserve2{
-   public void createFrame(Enroll enroll) {
+   public void createFrame(ArrayList<Enroll> enroll) {
       Frame f =new Frame("진료 예약");
       f.setBounds(0,100,400,600);
       f.setBackground(Color.lightGray);
@@ -36,6 +36,12 @@ public class FrameReserve2{
 
       int input=JOptionPane.showConfirmDialog(null,"등록번호가 발급되었습니다.","선택창", JOptionPane.CLOSED_OPTION);
       System.out.println(input);
+      
+      //가장 최근에 등록한 enroll값의 인덱스
+      int index=enroll.size()-1;
+      
+      Enroll latelyEnroll = new Enroll();
+      latelyEnroll=enroll.get(index);
       
       //폰트
       Font fontTitle=new Font(Font.SANS_SERIF,Font.BOLD,24);
@@ -97,10 +103,10 @@ public class FrameReserve2{
       pConR.add(animalnameA);
       CheckboxGroup rGroup2= new CheckboxGroup();
 
-      sirialNumA.setText(String.valueOf(enroll.getSirialNum()));
-      animalnameA.setText(enroll.getAnimalname());
+      sirialNumA.setText(String.valueOf(latelyEnroll.getSirialNum()));
+      animalnameA.setText(latelyEnroll.getAnimalname());
 
-      if(enroll.getAnimalgender().equals("수컷")){
+      if(latelyEnroll.getAnimalgender().equals("수컷")){
          Checkbox M=new Checkbox("수컷",rGroup2,true);
          Checkbox FM=new Checkbox("암컷",rGroup2,false);
          pConR.add(M); 
@@ -115,15 +121,15 @@ public class FrameReserve2{
       TextField animalcateA=new TextField(16);
       TextField animalageA=new TextField(16);
 
-      animalcateA.setText(enroll.getAnimalcate());
-      animalageA.setText(String.valueOf(enroll.getAnimalage()));
+      animalcateA.setText(latelyEnroll.getAnimalcate());
+      animalageA.setText(String.valueOf(latelyEnroll.getAnimalage()));
       
       
       pConR.add(animalcateA);
       pConR.add(animalageA);
       CheckboxGroup rGroup3= new CheckboxGroup();
 
-      if(!enroll.isGenderless()) {//중성화 유무
+      if(!latelyEnroll.isGenderless()) {//중성화 유무
          Checkbox genderX=new Checkbox("유",rGroup3,true);
          Checkbox genderO=new Checkbox("무",rGroup3,false); 
          pConR.add(genderX); 
@@ -141,8 +147,8 @@ public class FrameReserve2{
       pConR.add(phoneA);
       pCon.add(pConR);
 
-      nameA.setText(enroll.getName());
-      phoneA.setText(enroll.getPhone());
+      nameA.setText(latelyEnroll.getName());
+      phoneA.setText(latelyEnroll.getPhone());
       
       Button btn1 = new Button("메인화면");
       Button btn2 = new Button("다음");
@@ -167,9 +173,8 @@ public class FrameReserve2{
             //yes-0, no-1
             if(input==1) {
                FrameEnroll enroll = new FrameEnroll();
-               
-               enroll.createFrame();
                f.setVisible(false);
+               enroll.createFrame();
             }else {
                sirialNumA.setEnabled(true);
 
@@ -192,9 +197,8 @@ public class FrameReserve2{
          @Override
          public void actionPerformed(ActionEvent e) {
             FrameMain reserve = new FrameMain();
-           
-            reserve.createFrame();
             f.setVisible(false);
+            reserve.createFrame();
          }
 
       });
@@ -205,10 +209,15 @@ public class FrameReserve2{
         @Override
         public void actionPerformed(ActionEvent e) {
            
+           //동물명, 보호자명, 보호자 연락처 framediary로 보내기
+           ArrayList<String> list = new ArrayList<String>();
+           list.add(animalnameA.getText());
+           list.add(nameA.getText());
+           list.add(phoneA.getText());
            
-           
-           new FrameDiary(new DiaryModel());
            f.setVisible(false);
+           new FrameDiary(new DiaryModel(),list);
+           
 //           Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴
 //           
 //           

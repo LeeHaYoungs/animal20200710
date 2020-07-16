@@ -168,7 +168,9 @@ public class FrameReserve{
          @Override
          public void actionPerformed(ActionEvent e) {
         	// new FrameCalendar();
-            new FrameDiary(new DiaryModel());
+        	 
+        	 //*** FremaReserve는 ArrayList보내는거 아직 미구현
+//            new FrameDiary(new DiaryModel());
             f.setVisible(false);
             
 //            Reserve reserve = new Reserve();//객체 생성하면서 값 받아옴

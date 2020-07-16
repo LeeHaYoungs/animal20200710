@@ -11,6 +11,7 @@ import java.awt.Panel;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -19,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import EnrollVO.Enroll;
 import calendar.AcceptButton;
 import calendar.CellFace;
 import calendar.DateButton;
@@ -43,7 +45,7 @@ public class FrameDiary extends JFrame implements UpdateableView
    
    /** Constructor DiaryFrame builds the view
    * @param cells - the model, a diary */
-   public FrameDiary(DiaryModel cells)
+   public FrameDiary(DiaryModel cells,ArrayList<String> list)//동물명, 보호자명, 보호자 연락처
       {  
       calendar = cells;
 
@@ -118,7 +120,7 @@ public class FrameDiary extends JFrame implements UpdateableView
       button = new DateButton[DiaryModel.NUM_CELL];
       for( int i = 0; i < button.length; i++ )
       {
-         button[i] = new DateButton(calendar);
+         button[i] = new DateButton(calendar,list);//파라미터 두개 받기 //동물명, 보호자명, 보호자 연락처
          datePanel.add(button[i]);
       }
 

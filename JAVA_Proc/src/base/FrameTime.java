@@ -8,24 +8,21 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import com.sun.media.sound.DirectAudioDeviceProvider;
-
+import ReseveVO.MyReserve;
 import calendar.DiaryModel;
 
 public class FrameTime {
 		
-	public void createFrame() {
+	public void createFrame(ArrayList<String> myreserveList) {
 		Frame f = new Frame("진료 시간 선택 페이지");
 		f.setBounds(0, 100, 400, 600);
 		f.setBackground(Color.lightGray);
@@ -93,6 +90,9 @@ public class FrameTime {
 		time.setSize(100, 50);
 		time.setLocation(50, 100);
 
+		
+
+		
 		Panel pConC = new Panel();
 		pConC.setSize(100, 200);
 		pConC.setLocation(0, 50);
@@ -108,7 +108,8 @@ public class FrameTime {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new FrameDiary(new DiaryModel()); 
+				myreserveList.remove(myreserveList.size()-1);//최근에 추가된 값인 '날짜' 삭제
+				new FrameDiary(new DiaryModel(),myreserveList); 
 				f.setVisible(false);
 				//confirm.createFrame(null);
 			}
@@ -119,8 +120,16 @@ public class FrameTime {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				myreserveList.add(time.getItem(time.getSelectedIndex()));
+				
+				int size=myreserveList.size();
+				MyReserve ms = new MyReserve(myreserveList.get(size-5),myreserveList.get(size-4),myreserveList.get(size-3),myreserveList.get(size-2),myreserveList.get(size-1));
+				
+				ArrayList<MyReserve> myreserveComple = new ArrayList<MyReserve>();
+				myreserveComple.add(ms);
+				
 				FrameReserveConfirm confirm = new FrameReserveConfirm();
-				confirm.createFrame(null);
+				confirm.createFrame(myreserveComple);
 				f.setVisible(false);
 			}
 		});
