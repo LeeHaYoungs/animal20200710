@@ -16,11 +16,12 @@ public class NextMonthButton extends JButton implements ActionListener {
 						// view
 		calendar = my_calendar;
 		view = my_view;
-		setForeground(Color.white); // ±ÛÀÚ»ö ÁöÁ¤
-		setBorder(BorderFactory.createRaisedBevelBorder()); // ¹öÆ° Å×µÎ¸® Ãß°¡
+		setForeground(Color.white); // ï¿½ï¿½ï¿½Ú»ï¿½ ï¿½ï¿½ï¿½ï¿½
+		setBorder(BorderFactory.createRaisedBevelBorder()); // ï¿½ï¿½Æ° ï¿½×µÎ¸ï¿½ ï¿½ß°ï¿½
 		addActionListener(this);
 	}
 
+	//ã…‡ã…‡ã…‡
 	public void actionPerformed(ActionEvent evt) {
 		calendar.nextMonth();
 		view.update();
